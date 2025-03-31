@@ -48,6 +48,24 @@
 <ul class="current">
 <li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 1</a>
 <ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="#projectile-motion-analysis-of-range-dependence-on-launch-angle">Projectile Motion: Analysis of Range Dependence on Launch Angle</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#1-theoretical-foundation">1. Theoretical Foundation</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#2-analysis-of-the-range">2. Analysis of the Range</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#3-practical-applications">3. Practical Applications</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#4-implementation-python-simulation">4. Implementation: Python Simulation</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#gymnastics-style-jump-simplified-example">Gymnastics-Style Jump (Simplified Example)</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#5-discussion-on-limitations">5. Discussion on Limitations</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#conclusion">Conclusion</a>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../Problem_2/">Problem 2</a>
@@ -172,6 +190,98 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-1">Problem 1</h1>
+<h2 id="projectile-motion-analysis-of-range-dependence-on-launch-angle">Projectile Motion: Analysis of Range Dependence on Launch Angle</h2>
+<h3 id="1-theoretical-foundation">1. Theoretical Foundation</h3>
+<p>Projectile motion is governed by Newton’s laws. Assuming no air resistance, the motion can be described using kinematic equations:</p>
+<ul>
+<li><strong>Horizontal motion:</strong></li>
+</ul>
+<div class="arithmatex">\[
+x = v_0 \cos(\theta) \cdot t
+\]</div>
+<ul>
+<li><strong>Vertical motion:</strong></li>
+</ul>
+<div class="arithmatex">\[
+y = v_0 \sin(\theta) \cdot t - \frac{1}{2} g t^2
+\]</div>
+<p>The total time of flight is found by solving for when the projectile returns to its initial height:</p>
+<div class="arithmatex">\[
+t_f = \frac{2 v_0 \sin(\theta)}{g}
+\]</div>
+<p>The horizontal range is given by:</p>
+<div class="arithmatex">\[
+R = \frac{v_0^2 \sin(2\theta)}{g}
+\]</div>
+<hr/>
+<h3 id="2-analysis-of-the-range">2. Analysis of the Range</h3>
+<p>The horizontal range depends on:</p>
+<ul>
+<li><strong>Launch Angle (<span class="arithmatex">\(\theta\)</span>)</strong>: The range is maximized at <span class="arithmatex">\( 45^\circ \)</span>.</li>
+<li><strong>Initial Velocity (<span class="arithmatex">\(v_0\)</span>)</strong>: Higher velocity increases range quadratically.</li>
+<li><strong>Gravitational Acceleration (g):</strong> A stronger gravitational field decreases range.</li>
+</ul>
+<hr/>
+<h3 id="3-practical-applications">3. Practical Applications</h3>
+<ul>
+<li><strong>Sports:</strong> Understanding ball trajectories in football and basketball.</li>
+<li><strong>Engineering:</strong> Designing projectile-based systems like rockets or artillery.</li>
+<li><strong>Astrophysics:</strong> Studying planetary motion under different gravity levels.</li>
+<li><strong>Gymnastics:</strong> I did gymnastics for about 4.5 years, and even though I stopped, I still remember how much things like angle and push-off mattered during flips and vaults. Now that I’m learning the physics behind it, it all makes a lot more sense.</li>
+</ul>
+<hr/>
+<h3 id="4-implementation-python-simulation">4. Implementation: Python Simulation</h3>
+<p>We use Python to visualize how range varies with launch angle.</p>
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+
+def projectile_range(v0, g):
+    angles = np.linspace(0, 90, 100)  # Angles in degrees
+    angles_rad = np.radians(angles)   # Convert to radians
+    ranges = (v0**2 * np.sin(2 * angles_rad)) / g
+
+    plt.figure(figsize=(8,5))
+    plt.plot(angles, ranges, label=f'v0 = {v0} m/s')
+    plt.xlabel('Launch Angle (degrees)')
+    plt.ylabel('Range (m)')
+    plt.title('Projectile Range vs. Launch Angle')
+    plt.legend()
+    plt.grid()
+    plt.show()
+
+# Example parameters
+v0 = 20  # Initial velocity in m/s
+g = 9.81 # Gravity in m/s^2
+projectile_range(v0, g)
+</code></pre>
+<hr/>
+<h3 id="gymnastics-style-jump-simplified-example">Gymnastics-Style Jump (Simplified Example)</h3>
+<pre><code class="language-python">import math
+
+# Gymnastics jump simulation
+v0 = 4        # initial velocity (m/s)
+angle = 50    # launch angle (degrees)
+g = 9.81      # gravity (m/s^2)
+
+theta = math.radians(angle)
+
+t = (2 * v0 * math.sin(theta)) / g
+R = (v0**2 * math.sin(2 * theta)) / g
+
+print("Time in air:", round(t, 2), "s")
+print("Distance:", round(R, 2), "m")
+</code></pre>
+<p>This is a short example of how angle and velocity affect the flight time and distance of a jump, like in gymnastics.</p>
+<hr/>
+<h3 id="5-discussion-on-limitations">5. Discussion on Limitations</h3>
+<ul>
+<li><strong>Air Resistance:</strong> In real scenarios, drag significantly reduces range.</li>
+<li><strong>Uneven Terrain:</strong> Changes in landing elevation affect results.</li>
+<li><strong>Wind Influence:</strong> Can alter trajectory unpredictably.</li>
+</ul>
+<hr/>
+<h3 id="conclusion">Conclusion</h3>
+<p>This analysis demonstrates the relationship between launch angle and range, emphasizing its significance in various real-world applications. It also helped me connect what I’m learning now to the years I spent doing gymnastics. Future studies can include more realistic factors like air resistance and body posture during motion.</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
