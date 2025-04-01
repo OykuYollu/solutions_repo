@@ -114,6 +114,9 @@ This is a short example of how angle and velocity affect the flight time and dis
 - **Wind Influence:** Can alter trajectory unpredictably.
 
 ---
+### 6. Examples
+
+![alt text](image-1.png)
 
 ### Conclusion
 
