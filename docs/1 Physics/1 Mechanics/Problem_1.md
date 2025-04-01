@@ -79,6 +79,9 @@ g = 9.81 # Gravity in m/s^2
 projectile_range(v0, g)
 ```
 
+
+![alt text](image.png)
+
 ---
 
 ### Gymnastics-Style Jump (Simplified Example)
