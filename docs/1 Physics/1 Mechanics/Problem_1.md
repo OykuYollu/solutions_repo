@@ -80,7 +80,7 @@ projectile_range(v0, g)
 ```
 
 
-![Projectile Motion Plot](./image.png)
+![Projectile Motion Plot](image.png)
 
 ---
 
