@@ -77,10 +77,51 @@ def projectile_range(v0, g):
 v0 = 20  # Initial velocity in m/s
 g = 9.81 # Gravity in m/s^2
 projectile_range(v0, g)
+
+
+#### Range at Selected Launch Angles
+
+This graph shows how the horizontal range changes for selected launch angles (0°, 15°, ..., 90°).  
+The range is maximized at 45°, and symmetric angles give equal ranges (like 30° and 60°).
+
 ```
 
+![Range Graph](range_selected_plot.png)
+
+#### Full Range vs. Launch Angle Plot
+
+This plot provides a smoother, continuous look at how launch angle affects range.  
+It complements the previous graph by showing the full curve instead of selected angles.
 
 ![Projectile Motion Plot](image.png)
+
+---
+
+#### Range vs Initial Velocity at 45°
+
+This graph shows how the range increases quadratically as the initial velocity increases, with a fixed launch angle of 45°.
+
+![alt text](image-3.png)
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+def range_vs_velocity(theta_deg, g):
+    velocities = np.linspace(1, 50, 100)
+    theta_rad = np.radians(theta_deg)
+    ranges = (velocities**2 * np.sin(2 * theta_rad)) / g
+
+    plt.figure(figsize=(8,5))
+    plt.plot(velocities, ranges)
+    plt.xlabel('Initial Velocity (m/s)')
+    plt.ylabel('Range (m)')
+    plt.title(f'Range vs Initial Velocity at {theta_deg}°')
+    plt.grid()
+    plt.savefig("range_vs_velocity.png", dpi=300)
+    plt.show()
+
+range_vs_velocity(45, 9.81)
 
 ---
 
@@ -101,7 +142,12 @@ R = (v0**2 * math.sin(2 * theta)) / g
 
 print("Time in air:", round(t, 2), "s")
 print("Distance:", round(R, 2), "m")
+
+# Calculate maximum height
+h_max = (v0**2 * math.sin(theta)**2) / (2 * g)
+print("Maximum height:", round(h_max, 2), "m")
 ```
+![alt text](image-2.png)
 
 This is a short example of how angle and velocity affect the flight time and distance of a jump, like in gymnastics.
 
