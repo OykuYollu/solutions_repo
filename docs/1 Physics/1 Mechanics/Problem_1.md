@@ -93,7 +93,7 @@ The range is maximized at 45°, and symmetric angles give equal ranges (like 30�
 This plot provides a smoother, continuous look at how launch angle affects range.  
 It complements the previous graph by showing the full curve instead of selected angles.
 
-![Projectile Motion Plot](image.png)
+![Projectile Motion Plot](range_vs_angle_continuous.png)
 
 ---
 
@@ -101,7 +101,7 @@ It complements the previous graph by showing the full curve instead of selected 
 
 This graph shows how the range increases quadratically as the initial velocity increases, with a fixed launch angle of 45°.
 
-![alt text](image-3.png)
+![Velocity vs Range](range_vs_velocity.png)
 
 ```python
 import numpy as np
@@ -147,7 +147,7 @@ print("Distance:", round(R, 2), "m")
 h_max = (v0**2 * math.sin(theta)**2) / (2 * g)
 print("Maximum height:", round(h_max, 2), "m")
 ```
-![alt text](image-2.png)
+![Gymnastics Plot](gymnastics_height_time.png)
 
 This is a short example of how angle and velocity affect the flight time and distance of a jump, like in gymnastics.
 
