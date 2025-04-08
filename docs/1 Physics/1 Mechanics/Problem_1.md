@@ -163,7 +163,11 @@ This is a short example of how angle and velocity affect the flight time and dis
 ---
 ### 6. Examples
 
-![alt text](image-1.png)
+![Trajectory Illustration](image-1.png)  
+*Figure 1: Illustration showing how launch angle and velocity affect the range of projectile motion.*
+
+![Simulation Plot](image.png)  
+*Figure 2: Simulated projectile paths at 45° launch angle with different initial velocities.*
 
 ### Conclusion
 
