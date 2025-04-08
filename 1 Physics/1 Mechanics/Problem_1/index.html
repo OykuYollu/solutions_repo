@@ -58,8 +58,6 @@
 </li>
 <li class="toctree-l4"><a class="reference internal" href="#4-implementation-python-simulation">4. Implementation: Python Simulation</a>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="#gymnastics-style-jump-simplified-example">Gymnastics-Style Jump (Simplified Example)</a>
-</li>
 <li class="toctree-l4"><a class="reference internal" href="#5-discussion-on-limitations">5. Discussion on Limitations</a>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="#6-examples">6. Examples</a>
@@ -69,8 +67,6 @@
 </ul>
 </li>
 </ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../Problem_2/">Problem 2</a>
 </li>
 </ul>
 </li>
@@ -255,11 +251,48 @@ def projectile_range(v0, g):
 v0 = 20  # Initial velocity in m/s
 g = 9.81 # Gravity in m/s^2
 projectile_range(v0, g)
+
+
+#### Range at Selected Launch Angles
+
+This graph shows how the horizontal range changes for selected launch angles (0°, 15°, ..., 90°).  
+The range is maximized at 45°, and symmetric angles give equal ranges (like 30° and 60°).
+
 </code></pre>
+<p><img alt="Range Graph" src="../range_selected_plot.png"/></p>
+<h4 id="full-range-vs-launch-angle-plot">Full Range vs. Launch Angle Plot</h4>
+<p>This plot provides a smoother, continuous look at how launch angle affects range.<br/>
+It complements the previous graph by showing the full curve instead of selected angles.</p>
 <p><img alt="Projectile Motion Plot" src="../image.png"/></p>
 <hr/>
-<h3 id="gymnastics-style-jump-simplified-example">Gymnastics-Style Jump (Simplified Example)</h3>
-<pre><code class="language-python">import math
+<h4 id="range-vs-initial-velocity-at-45">Range vs Initial Velocity at 45°</h4>
+<p>This graph shows how the range increases quadratically as the initial velocity increases, with a fixed launch angle of 45°.</p>
+<p><img alt="alt text" src="../image-3.png"/></p>
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+
+def range_vs_velocity(theta_deg, g):
+    velocities = np.linspace(1, 50, 100)
+    theta_rad = np.radians(theta_deg)
+    ranges = (velocities**2 * np.sin(2 * theta_rad)) / g
+
+    plt.figure(figsize=(8,5))
+    plt.plot(velocities, ranges)
+    plt.xlabel('Initial Velocity (m/s)')
+    plt.ylabel('Range (m)')
+    plt.title(f'Range vs Initial Velocity at {theta_deg}°')
+    plt.grid()
+    plt.savefig("range_vs_velocity.png", dpi=300)
+    plt.show()
+
+range_vs_velocity(45, 9.81)
+
+---
+
+### Gymnastics-Style Jump (Simplified Example)
+
+```python
+import math
 
 # Gymnastics jump simulation
 v0 = 4        # initial velocity (m/s)
@@ -273,7 +306,12 @@ R = (v0**2 * math.sin(2 * theta)) / g
 
 print("Time in air:", round(t, 2), "s")
 print("Distance:", round(R, 2), "m")
+
+# Calculate maximum height
+h_max = (v0**2 * math.sin(theta)**2) / (2 * g)
+print("Maximum height:", round(h_max, 2), "m")
 </code></pre>
+<p><img alt="alt text" src="../image-2.png"/></p>
 <p>This is a short example of how angle and velocity affect the flight time and distance of a jump, like in gymnastics.</p>
 <hr/>
 <h3 id="5-discussion-on-limitations">5. Discussion on Limitations</h3>
@@ -291,7 +329,7 @@ print("Distance:", round(R, 2), "m")
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
 <a class="btn btn-neutral float-left" href="../../.." title="Introduction"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-<a class="btn btn-neutral float-right" href="../Problem_2/" title="Problem 2">Next <span class="icon icon-circle-arrow-right"></span></a>
+<a class="btn btn-neutral float-right" href="../../2%20Gravity/Problem_1/" title="Problem 1">Next <span class="icon icon-circle-arrow-right"></span></a>
 </div>
 <hr/>
 <div role="contentinfo">
@@ -307,7 +345,7 @@ print("Distance:", round(R, 2), "m")
 <div aria-label="Versions" class="rst-versions" role="note">
 <span class="rst-current-version" data-toggle="rst-current-version">
 <span><a href="../../.." style="color: #fcfcfc">« Previous</a></span>
-<span><a href="../Problem_2/" style="color: #fcfcfc">Next »</a></span>
+<span><a href="../../2%20Gravity/Problem_1/" style="color: #fcfcfc">Next »</a></span>
 </span>
 </div>
 <script src="../../../js/jquery-3.6.0.min.js"></script>
