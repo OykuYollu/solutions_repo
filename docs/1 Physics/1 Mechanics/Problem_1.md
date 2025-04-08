@@ -123,6 +123,7 @@ def range_vs_velocity(theta_deg, g):
 
 range_vs_velocity(45, 9.81)
 
+```
 ---
 
 ### Gymnastics-Style Jump (Simplified Example)
