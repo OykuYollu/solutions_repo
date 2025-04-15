@@ -140,6 +140,14 @@ plt.show()
 
 This graph shows how the angle of the forced damped pendulum evolves over time.
 
+# Angle vs Time – Resonance Behavior
+
+This plot shows large and regular oscillations due to resonance.  
+The system absorbs energy efficiently from the external force, resulting in high-amplitude, periodic motion.  
+It represents a typical resonant response with minimal damping and driving frequency close to natural frequency.
+
+![Angle vs Time – Resonance](angle_vs_time_resonance.png)
+
 # Angular Velocity vs Time
 
 The following graph illustrates how the angular velocity of the forced damped pendulum changes over time.  
@@ -177,6 +185,24 @@ plt.show()
 ![Phase Diagram](phase.png)
 
 This phase diagram shows the relationship between angular displacement and angular velocity, helping us understand the system’s dynamics (e.g. chaotic behavior).
+
+# Phase Diagram – Chaotic Behavior
+
+This phase diagram illustrates the system's behavior under chaotic conditions.  
+In this scenario, the damping coefficient (`b = 0.5`) and driving amplitude (`A = 1.2`) are set to values that push the pendulum into a nonlinear, unpredictable regime.  
+The diagram shows a dense and non-repeating pattern, which is a hallmark of chaos.  
+Such behavior is highly sensitive to initial conditions and does not settle into a stable orbit.
+  
+![Phase Diagram – Chaotic](phase_chaotic.png)
+
+# Phase Diagram – Resonance Behavior
+
+This phase diagram shows the response of the system near its natural frequency, producing resonance.  
+With low damping (`b = 0.1`) and a driving frequency approximately equal to the system’s natural frequency (`ω ≈ √(g/L)`), the pendulum absorbs energy efficiently.  
+This results in large, smooth, and repeating loops in phase space – a characteristic of resonant oscillations.  
+The motion is regular and periodic, unlike the chaotic case.
+
+![Phase Diagram – Resonance](phase_resonance.png)
 
 # Total Mechanical Energy
 theta, omega = sol.y
