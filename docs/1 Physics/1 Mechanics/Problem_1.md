@@ -169,6 +169,11 @@ This is a short example of how angle and velocity affect the flight time and dis
 ![Simulation Plot](image.png)  
 *Figure 2: Simulated projectile paths at 45° launch angle with different initial velocities.*
 
+![Simulation Plot2](threeangles.png)  
+*Figure 3: Simulated projectile paths at 15,45,75° launch angle with different initial velocities.*
+
 ### Conclusion
 
 This analysis demonstrates the relationship between launch angle and range, emphasizing its significance in various real-world applications. It also helped me connect what I’m learning now to the years I spent doing gymnastics. Future studies can include more realistic factors like air resistance and body posture during motion.
+
+[visit my colab](https://colab.research.google.com/drive/12ewf_JZ_yLYOVcGmlTmLmomMfYRijGa6?usp=sharing)
