@@ -260,6 +260,18 @@
 <p>We simulate the pendulum using Python and visualize the results through various plots.</p>
 <hr/>
 <h2 id="example-python-implementation">Example Python Implementation</h2>
+<h1 id="comparison-of-three-pendulum-scenarios">Comparison of Three Pendulum Scenarios</h1>
+<p>The figure below presents three different cases of pendulum motion:</p>
+<ol>
+<li><strong>Simple Pendulum</strong> (no damping, no forcing)  </li>
+<li><strong>Damped Pendulum</strong> (with damping only)  </li>
+<li><strong>Forced Pendulum</strong> (damping + external force)</li>
+</ol>
+<p>Each row shows:
+- Left: Time series of the angle (θ vs time)<br/>
+- Right: Corresponding phase diagram (θ vs ω)</p>
+<p>This comparison helps visualize how damping and external forcing impact the system's dynamics.</p>
+<p><img alt="Three Pendulum Cases" src="../pendulum-2.png"/></p>
 <pre><code class="language-python">import numpy as np
 import matplotlib.pyplot as plt
 from scipy.integrate import solve_ivp
