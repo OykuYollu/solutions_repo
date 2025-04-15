@@ -299,6 +299,11 @@ plt.grid(True)
 plt.show()</p>
 <p><img alt="Angle vs Time" src="../anglevstime.png"/></p>
 <p>This graph shows how the angle of the forced damped pendulum evolves over time.</p>
+<h1 id="angle-vs-time-resonance-behavior">Angle vs Time – Resonance Behavior</h1>
+<p>This plot shows large and regular oscillations due to resonance.<br/>
+The system absorbs energy efficiently from the external force, resulting in high-amplitude, periodic motion.<br/>
+It represents a typical resonant response with minimal damping and driving frequency close to natural frequency.</p>
+<p><img alt="Angle vs Time – Resonance" src="../angle_vs_time_resonance.png"/></p>
 <h1 id="angular-velocity-vs-time">Angular Velocity vs Time</h1>
 <p>The following graph illustrates how the angular velocity of the forced damped pendulum changes over time.<br/>
 This visualization helps understand how damping and external driving forces affect the rotational speed (ω) of the pendulum.</p>
@@ -322,6 +327,18 @@ plt.grid(True)
 plt.show()</p>
 <p><img alt="Phase Diagram" src="../phase.png"/></p>
 <p>This phase diagram shows the relationship between angular displacement and angular velocity, helping us understand the system’s dynamics (e.g. chaotic behavior).</p>
+<h1 id="phase-diagram-chaotic-behavior">Phase Diagram – Chaotic Behavior</h1>
+<p>This phase diagram illustrates the system's behavior under chaotic conditions.<br/>
+In this scenario, the damping coefficient (<code>b = 0.5</code>) and driving amplitude (<code>A = 1.2</code>) are set to values that push the pendulum into a nonlinear, unpredictable regime.<br/>
+The diagram shows a dense and non-repeating pattern, which is a hallmark of chaos.<br/>
+Such behavior is highly sensitive to initial conditions and does not settle into a stable orbit.</p>
+<p><img alt="Phase Diagram – Chaotic" src="../phase_chaotic.png"/></p>
+<h1 id="phase-diagram-resonance-behavior">Phase Diagram – Resonance Behavior</h1>
+<p>This phase diagram shows the response of the system near its natural frequency, producing resonance.<br/>
+With low damping (<code>b = 0.1</code>) and a driving frequency approximately equal to the system’s natural frequency (<code>ω ≈ √(g/L)</code>), the pendulum absorbs energy efficiently.<br/>
+This results in large, smooth, and repeating loops in phase space – a characteristic of resonant oscillations.<br/>
+The motion is regular and periodic, unlike the chaotic case.</p>
+<p><img alt="Phase Diagram – Resonance" src="../phase_resonance.png"/></p>
 <h1 id="total-mechanical-energy">Total Mechanical Energy</h1>
 <p>theta, omega = sol.y
 kinetic = 0.5 * (L<strong>2) * omega</strong>2
