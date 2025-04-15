@@ -135,6 +135,7 @@ plt.xlabel("Time (s)")
 plt.ylabel("Angle (rad)")
 plt.grid(True)
 plt.show()
+```
 
 ![Angle vs Time](anglevstime.png)
 
@@ -173,6 +174,7 @@ This graph visualizes the relationship between angular displacement (θ) and ang
 
 ![Parametric θ vs ω](parametric_theta_omega.png)
 
+```python
 # Phase Diagram: θ vs ω
 plt.figure()
 plt.plot(sol.y[0], sol.y[1])
@@ -181,6 +183,7 @@ plt.xlabel("Angle (rad)")
 plt.ylabel("Angular Velocity (rad/s)")
 plt.grid(True)
 plt.show()
+```
 
 ![Phase Diagram](phase.png)
 
@@ -204,6 +207,7 @@ The motion is regular and periodic, unlike the chaotic case.
 
 ![Phase Diagram – Resonance](phase_resonance.png)
 
+```python
 # Total Mechanical Energy
 theta, omega = sol.y
 kinetic = 0.5 * (L**2) * omega**2
@@ -217,6 +221,7 @@ plt.xlabel("Time (s)")
 plt.ylabel("Energy (Joules)")
 plt.grid(True)
 plt.show()
+```
 
 ![Total Mechanical Energy](energy.png)
 
@@ -224,6 +229,8 @@ This graph displays the total mechanical energy (kinetic + potential) of the sys
 
 
 # Poincaré Section (sampled at driving period intervals)
+
+```python
 T = 2 * np.pi / w
 poincare_theta = []
 poincare_omega = []
@@ -240,6 +247,7 @@ plt.xlabel("θ (rad)")
 plt.ylabel("ω (rad/s)")
 plt.grid(True)
 plt.show()
+```
 
 ![Poincaré Section](poincare.png)
 
@@ -268,9 +276,9 @@ This graph visualizes the system's state at specific time intervals, helping ide
 
 - Use the small-angle approximation:
 
-  $$
-  \sin(\theta) \approx \theta \quad \text{(for small angles)}
-  $$
+$$
+\sin(\theta) \approx \theta \quad \text{(for small angles)}
+$$
 
 - Apply **numerical integration techniques** (e.g., Runge-Kutta 4 or `solve_ivp`) to solve the ODE.
 - Recommended libraries:
