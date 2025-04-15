@@ -305,4 +305,4 @@ $$
   - **Driven RLC circuits** in electrical engineering
   - **Biomechanical modeling** of periodic limb motion
 
- [visit my colab]https://colab.research.google.com/drive/1VZKsPBKIt6WlKRky2U4mSOrXnSPWNYfZ?usp=sharing
+[visit my colab](https://colab.research.google.com/drive/1VZKsPBKIt6WlKRky2U4mSOrXnSPWNYfZ?usp=sharing)
