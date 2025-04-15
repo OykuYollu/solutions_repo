@@ -1,1 +1,0 @@
-![Angle vs Time](angle_vs_time.png)
