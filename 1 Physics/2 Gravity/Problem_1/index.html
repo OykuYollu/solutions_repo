@@ -241,29 +241,30 @@ T^2 = \frac{4\pi^2}{GM} a^3
 <hr/>
 <h1 id="graphs-section">Graphs Section</h1>
 <h2 id="graph-1-keplers-third-law-t2-vs-r3">Graph 1: Kepler's Third Law (T² vs r³)</h2>
-<p>```python
-import numpy as np
-import matplotlib.pyplot as plt</p>
-<h1 id="constants">Constants</h1>
-<p>G = 6.67430e-11  # Gravitational constant (m³/kg/s²)
-M = 1.989e30     # Mass of the Sun (kg)</p>
-<h1 id="orbital-radii-in-meters">Orbital radii (in meters)</h1>
-<p>radii = np.linspace(5e10, 1e12, 100)</p>
-<h1 id="orbital-periods-in-seconds">Orbital periods (in seconds)</h1>
-<p>periods = 2 * np.pi * np.sqrt(radii**3 / (G * M))</p>
-<h1 id="plotting-t2-vs-r3">Plotting T² vs r³</h1>
-<p>plt.figure(figsize=(8,6))
-plt.plot(radii<strong>3, periods</strong>2, 'o')
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+
+# Constants
+G = 6.67430e-11
+M = 1.989e30
+
+radii = np.linspace(5e10, 1e12, 100)
+periods = 2 * np.pi * np.sqrt(radii**3 / (G * M))
+
+plt.figure(figsize=(8,6))
+plt.plot(radii**3, periods**2, 'o')
 plt.xlabel('Orbital Radius Cubed (r³) [m³]')
 plt.ylabel('Orbital Period Squared (T²) [s²]')
-plt.title("Kepler's Third Law: T² vs r³ (Circular Orbits)")
+plt.title("Kepler's Third Law: T² vs r³")
 plt.grid(True)
 plt.tight_layout()
 plt.savefig('kepler_third_law_graph.png')
-plt.show()</p>
-<p><img alt="Kepler's Third Law Graph" src="../kepler_third_law_graph.png"/></p>
-<h1 id="orbital-radius-vs-period">Orbital Radius vs Period</h1>
-<p>plt.figure(figsize=(8,6))
+plt.show()
+
+![Kepler's Third Law Graph](kepler_third_law_graph.png)
+
+# Orbital Radius vs Period
+plt.figure(figsize=(8,6))
 plt.plot(radii, periods, 'o')
 plt.xlabel('Orbital Radius (r) [m]')
 plt.ylabel('Orbital Period (T) [s]')
@@ -271,10 +272,12 @@ plt.title('Orbital Radius vs Orbital Period')
 plt.grid(True)
 plt.tight_layout()
 plt.savefig('orbital_radius_vs_period.png')
-plt.show()</p>
-<p><img alt="Orbital Radius vs Orbital Period" src="../orbital_radius_vs_period.png"/></p>
-<h1 id="log-log-plot">Log-Log Plot</h1>
-<p>plt.figure(figsize=(8,6))
+plt.show()
+
+![Orbital Radius vs Orbital Period](orbital_radius_vs_period.png)
+
+# Log-Log Plot
+plt.figure(figsize=(8,6))
 plt.plot(np.log(radii), np.log(periods), 'o')
 plt.xlabel('log(Orbital Radius) [log(m)]')
 plt.ylabel('log(Orbital Period) [log(s)]')
@@ -282,11 +285,14 @@ plt.title('Log-Log Plot: log(T) vs log(r)')
 plt.grid(True)
 plt.tight_layout()
 plt.savefig('log_log_plot.png')
-plt.show()</p>
-<p><img alt="Log-Log Plot: log(T) vs log(r)" src="../log_log_plot.png"/></p>
-<h1 id="orbital-velocity">Orbital Velocity</h1>
-<p>velocities = np.sqrt(G * M / radii)</p>
-<p>plt.figure(figsize=(8,6))
+plt.show()
+
+![Log-Log Plot: log(T) vs log(r)](log_log_plot.png)
+
+# Orbital Velocity
+velocities = np.sqrt(G * M / radii)
+
+plt.figure(figsize=(8,6))
 plt.plot(radii, velocities, 'o')
 plt.xlabel('Orbital Radius (r) [m]')
 plt.ylabel('Orbital Velocity (v) [m/s]')
@@ -294,8 +300,11 @@ plt.title('Orbital Velocity vs Orbital Radius')
 plt.grid(True)
 plt.tight_layout()
 plt.savefig('velocity_vs_radius.png')
-plt.show()</p>
-<p><img alt="Orbital Velocity vs Orbital Radius" src="../velocity_vs_radius.png"/></p>
+plt.show()
+
+![Orbital Velocity vs Orbital Radius](velocity_vs_radius.png)
+
+</code></pre>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
