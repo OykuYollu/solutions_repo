@@ -172,3 +172,123 @@ plt.show()
 ```
 
 ![Orbital Velocity vs Orbital Radius](velocity_vs_radius.png)
+
+## Graph 5: Escape Velocity vs Orbital Radius
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Constants
+G = 6.67430e-11  # m^3 kg^-1 s^-2
+M = 1.989e30     # kg
+
+radii = np.linspace(5e10, 1e12, 100)
+
+escape_velocities = np.sqrt(2 * G * M / radii)
+
+plt.figure(figsize=(8,6))
+plt.plot(radii, escape_velocities, 'o')
+plt.xlabel('Orbital Radius (r) [m]')
+plt.ylabel('Escape Velocity (vₑ) [m/s]')
+plt.title('Escape Velocity vs Orbital Radius')
+plt.grid(True)
+plt.tight_layout()
+plt.savefig('escape_velocity_vs_radius.png')
+plt.show()
+```
+![Escape Velocity vs Orbital Radius](escape_velocity_vs_radius.png)
+
+## Graph 6: Total Orbital Energy vs Orbital Radius
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Constants
+G = 6.67430e-11  # m^3 kg^-1 s^-2
+M = 1.989e30     # kg
+m = 5.972e24     # Mass of Earth (kg) -- örnek için
+
+radii = np.linspace(5e10, 1e12, 100)
+
+energies = - (G * M * m) / (2 * radii)
+
+plt.figure(figsize=(8,6))
+plt.plot(radii, energies, 'o')
+plt.xlabel('Orbital Radius (r) [m]')
+plt.ylabel('Total Orbital Energy (E) [J]')
+plt.title('Total Orbital Energy vs Orbital Radius')
+plt.grid(True)
+plt.tight_layout()
+plt.savefig('total_orbital_energy_vs_radius.png')
+plt.show()
+```
+![Total Orbital Energy vs Orbital Radius](total_orbital_energy_vs_radius.png)
+
+## Graph 7: T² vs r³ for Real Planets
+
+```python
+radii = np.array([5.79e10, 1.082e11, 1.496e11, 2.279e11])
+periods = np.array([7.6e6, 1.94e7, 3.15e7, 5.94e7])
+
+plt.figure(figsize=(8,6))
+plt.plot(radii**3, periods**2, 'o-', label='Planets: Mercury, Venus, Earth, Mars')
+plt.xlabel('Orbital Radius Cubed (r³) [m³]')
+plt.ylabel('Orbital Period Squared (T²) [s²]')
+plt.title('T² vs r³ for Real Planets')
+plt.grid(True)
+plt.legend()
+plt.tight_layout()
+plt.savefig('planets_kepler_law.png')
+plt.show()
+```
+
+![T² vs r³ for Real Planets](planets_kepler_law.png)
+
+## Planetary Orbital Data Table
+
+| Planet  | Orbital Radius (r) [m] | Orbital Period (T) [s] |
+|:-------:|:----------------------:|:----------------------:|
+| Mercury | 5.79 × 10¹⁰             | 7.6 × 10⁶              |
+| Venus   | 1.082 × 10¹¹            | 1.94 × 10⁷             |
+| Earth   | 1.496 × 10¹¹            | 3.15 × 10⁷             |
+| Mars    | 2.279 × 10¹¹            | 5.94 × 10⁷             |
+
+## Graph 8: T² vs r³ with Planet Names
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Planetary Data
+radii = np.array([5.79e10, 1.082e11, 1.496e11, 2.279e11])
+periods = np.array([7.6e6, 1.94e7, 3.15e7, 5.94e7])
+planets = ['Mercury', 'Venus', 'Earth', 'Mars']
+
+plt.figure(figsize=(8,6))
+plt.plot(radii**3, periods**2, 'o', markersize=8, label='Planets')
+
+for i in range(len(planets)):
+    plt.annotate(planets[i],
+                 (radii[i]**3, periods[i]**2),
+                 textcoords="offset points",
+                 xytext=(0,10),
+                 ha='center')
+
+plt.xlabel('Orbital Radius Cubed (r³) [m³]')
+plt.ylabel('Orbital Period Squared (T²) [s²]')
+plt.title("T² vs r³: Real Planets with Labels")
+plt.grid(True)
+plt.legend()
+plt.tight_layout()
+plt.savefig('planets_kepler_law_annotated.png')
+plt.show()
+```
+![T² vs r³: Real Planets with Labels](planets_kepler_law_annotated.png)
+
+# Conclusion
+
+In this project, we derived Kepler's Third Law starting from Newton's principles and verified it using simulated and real-world planetary data. Various graphical analyses confirmed the proportional relationship between the square of the orbital period and the cube of the orbital radius. This study enhances our understanding of orbital mechanics, an essential aspect of celestial physics.
+
+[visit my colab](https://colab.research.google.com/drive/1mf6_KAMZWRRb9Eo6LtPy0lwP0k8U7Gyy?usp=sharing)
