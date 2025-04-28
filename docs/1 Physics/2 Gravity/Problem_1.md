@@ -94,6 +94,7 @@ $$
 - A discussion on how this relationship extends to elliptical orbits and other celestial bodies.
 
 ---
+
 # Graphs Section
 
 ## Graph 1: Kepler's Third Law (T² vs r³)
@@ -103,21 +104,17 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Constants
-G = 6.67430e-11  # Gravitational constant (m³/kg/s²)
-M = 1.989e30     # Mass of the Sun (kg)
+G = 6.67430e-11
+M = 1.989e30
 
-# Orbital radii (in meters)
 radii = np.linspace(5e10, 1e12, 100)
-
-# Orbital periods (in seconds)
 periods = 2 * np.pi * np.sqrt(radii**3 / (G * M))
 
-# Plotting T² vs r³
 plt.figure(figsize=(8,6))
 plt.plot(radii**3, periods**2, 'o')
 plt.xlabel('Orbital Radius Cubed (r³) [m³]')
 plt.ylabel('Orbital Period Squared (T²) [s²]')
-plt.title("Kepler's Third Law: T² vs r³ (Circular Orbits)")
+plt.title("Kepler's Third Law: T² vs r³")
 plt.grid(True)
 plt.tight_layout()
 plt.savefig('kepler_third_law_graph.png')
@@ -166,3 +163,4 @@ plt.show()
 
 ![Orbital Velocity vs Orbital Radius](velocity_vs_radius.png)
 
+```
