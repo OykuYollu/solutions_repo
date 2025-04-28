@@ -110,7 +110,6 @@ M = 1.989e30
 radii = np.linspace(5e10, 1e12, 100)
 periods = 2 * np.pi * np.sqrt(radii**3 / (G * M))
 
-# Plotting T² vs r³
 plt.figure(figsize=(8,6))
 plt.plot(radii**3, periods**2, 'o')
 plt.xlabel('Orbital Radius Cubed (r³) [m³]')
@@ -163,3 +162,4 @@ plt.savefig('velocity_vs_radius.png')
 plt.show()
 
 ![Orbital Velocity vs Orbital Radius](velocity_vs_radius.png)
+
