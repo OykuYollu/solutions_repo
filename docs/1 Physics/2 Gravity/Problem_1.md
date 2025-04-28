@@ -119,10 +119,13 @@ plt.grid(True)
 plt.tight_layout()
 plt.savefig('kepler_third_law_graph.png')
 plt.show()
+```
 
 ![Kepler's Third Law Graph](kepler_third_law_graph.png)
 
-# Orbital Radius vs Orbital Period
+## Graph 2: Orbital Radius vs Orbital Period
+
+```python
 plt.figure(figsize=(8,6))
 plt.plot(radii, periods, 'o')
 plt.xlabel('Orbital Radius (r) [m]')
@@ -132,10 +135,13 @@ plt.grid(True)
 plt.tight_layout()
 plt.savefig('orbital_radius_vs_period.png')
 plt.show()
+```
 
 ![Orbital Radius vs Orbital Period](orbital_radius_vs_period.png)
 
-# Log-Log Plot
+## Graph 3: Log-Log Plot
+
+```python
 plt.figure(figsize=(8,6))
 plt.plot(np.log(radii), np.log(periods), 'o')
 plt.xlabel('log(Orbital Radius) [log(m)]')
@@ -145,10 +151,13 @@ plt.grid(True)
 plt.tight_layout()
 plt.savefig('log_log_plot.png')
 plt.show()
+```
 
 ![Log-Log Plot: log(T) vs log(r)](log_log_plot.png)
 
-# Orbital Velocity vs Orbital Radius
+## Graph 4: Orbital Velocity vs Orbital Radius
+
+```python
 velocities = np.sqrt(G * M / radii)
 
 plt.figure(figsize=(8,6))
@@ -160,6 +169,6 @@ plt.grid(True)
 plt.tight_layout()
 plt.savefig('velocity_vs_radius.png')
 plt.show()
+```
 
 ![Orbital Velocity vs Orbital Radius](velocity_vs_radius.png)
-
