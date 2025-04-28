@@ -95,6 +95,7 @@ $$
 
 ---
 
+```markdown
 # Graphs Section
 
 ## Graph 1: Kepler's Third Law (T² vs r³)
@@ -148,7 +149,7 @@ plt.show()
 
 ![Log-Log Plot: log(T) vs log(r)](log_log_plot.png)
 
-# Orbital Velocity
+# Orbital Velocity vs Orbital Radius
 velocities = np.sqrt(G * M / radii)
 
 plt.figure(figsize=(8,6))
@@ -162,5 +163,3 @@ plt.savefig('velocity_vs_radius.png')
 plt.show()
 
 ![Orbital Velocity vs Orbital Radius](velocity_vs_radius.png)
-
-```
