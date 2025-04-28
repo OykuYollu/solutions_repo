@@ -95,7 +95,6 @@ $$
 
 ---
 
-```markdown
 # Graphs Section
 
 ## Graph 1: Kepler's Third Law (T² vs r³)
@@ -111,6 +110,7 @@ M = 1.989e30
 radii = np.linspace(5e10, 1e12, 100)
 periods = 2 * np.pi * np.sqrt(radii**3 / (G * M))
 
+# Plotting T² vs r³
 plt.figure(figsize=(8,6))
 plt.plot(radii**3, periods**2, 'o')
 plt.xlabel('Orbital Radius Cubed (r³) [m³]')
@@ -123,7 +123,7 @@ plt.show()
 
 ![Kepler's Third Law Graph](kepler_third_law_graph.png)
 
-# Orbital Radius vs Period
+# Orbital Radius vs Orbital Period
 plt.figure(figsize=(8,6))
 plt.plot(radii, periods, 'o')
 plt.xlabel('Orbital Radius (r) [m]')
