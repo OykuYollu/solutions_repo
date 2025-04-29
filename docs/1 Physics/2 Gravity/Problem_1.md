@@ -75,6 +75,37 @@ $$
 T^2 = \frac{4\pi^2}{GM} a^3
 $$
 
+## Application: Mass Calculation using Kepler’s Law
+
+We can use the derived equation to calculate the mass of a central body (such as the Earth or the Sun):
+
+\[
+T^2 = \frac{4\pi^2 r^3}{GM} \quad \Rightarrow \quad M = \frac{4\pi^2 r^3}{G T^2}
+\]
+
+### 1. Mass of the Earth (using a satellite or the Moon)
+
+Given:
+- Orbital radius: \(r = 3.84 \times 10^8\) m  
+- Orbital period: \(T = 2.36 \times 10^6\) s  
+- Gravitational constant: \(G = 6.674 \times 10^{-11}\) N·m²/kg²  
+
+\[
+M_{\text{Earth}} = \frac{4\pi^2 (3.84 \times 10^8)^3}{6.674 \times 10^{-11} \cdot (2.36 \times 10^6)^2} \approx 5.97 \times 10^{24} \text{ kg}
+\]
+
+### 2. Mass of the Sun (using Earth’s orbit)
+
+Given:
+- Orbital radius: \(r = 1.496 \times 10^{11}\) m  
+- Orbital period: \(T = 3.154 \times 10^7\) s  
+
+\[
+M_{\odot} = \frac{4\pi^2 (1.496 \times 10^{11})^3}{6.674 \times 10^{-11} \cdot (3.154 \times 10^7)^2} \approx 1.989 \times 10^{30} \text{ kg}
+\]
+
+These calculations show that Kepler’s Third Law allows us to estimate the mass of large celestial bodies using only orbital data.
+
 ---
 
 ## Task List
@@ -97,109 +128,8 @@ $$
 
 # Graphs Section
 
-## Graph 1: Kepler's Third Law (T² vs r³)
 
-```python
-import numpy as np
-import matplotlib.pyplot as plt
-
-# Constants
-G = 6.67430e-11
-M = 1.989e30
-
-radii = np.linspace(5e10, 1e12, 100)
-periods = 2 * np.pi * np.sqrt(radii**3 / (G * M))
-
-plt.figure(figsize=(8,6))
-plt.plot(radii**3, periods**2, 'o')
-plt.xlabel('Orbital Radius Cubed (r³) [m³]')
-plt.ylabel('Orbital Period Squared (T²) [s²]')
-plt.title("Kepler's Third Law: T² vs r³")
-plt.grid(True)
-plt.tight_layout()
-plt.savefig('kepler_third_law_graph.png')
-plt.show()
-```
-
-![Kepler's Third Law Graph](kepler_third_law_graph.png)
-
-## Graph 2: Orbital Radius vs Orbital Period
-
-```python
-plt.figure(figsize=(8,6))
-plt.plot(radii, periods, 'o')
-plt.xlabel('Orbital Radius (r) [m]')
-plt.ylabel('Orbital Period (T) [s]')
-plt.title('Orbital Radius vs Orbital Period')
-plt.grid(True)
-plt.tight_layout()
-plt.savefig('orbital_radius_vs_period.png')
-plt.show()
-```
-
-![Orbital Radius vs Orbital Period](orbital_radius_vs_period.png)
-
-## Graph 3: Log-Log Plot
-
-```python
-plt.figure(figsize=(8,6))
-plt.plot(np.log(radii), np.log(periods), 'o')
-plt.xlabel('log(Orbital Radius) [log(m)]')
-plt.ylabel('log(Orbital Period) [log(s)]')
-plt.title('Log-Log Plot: log(T) vs log(r)')
-plt.grid(True)
-plt.tight_layout()
-plt.savefig('log_log_plot.png')
-plt.show()
-```
-
-![Log-Log Plot: log(T) vs log(r)](log_log_plot.png)
-
-## Graph 4: Orbital Velocity vs Orbital Radius
-
-```python
-velocities = np.sqrt(G * M / radii)
-
-plt.figure(figsize=(8,6))
-plt.plot(radii, velocities, 'o')
-plt.xlabel('Orbital Radius (r) [m]')
-plt.ylabel('Orbital Velocity (v) [m/s]')
-plt.title('Orbital Velocity vs Orbital Radius')
-plt.grid(True)
-plt.tight_layout()
-plt.savefig('velocity_vs_radius.png')
-plt.show()
-```
-
-![Orbital Velocity vs Orbital Radius](velocity_vs_radius.png)
-
-## Graph 5: Escape Velocity vs Orbital Radius
-
-```python
-import numpy as np
-import matplotlib.pyplot as plt
-
-# Constants
-G = 6.67430e-11  # m^3 kg^-1 s^-2
-M = 1.989e30     # kg
-
-radii = np.linspace(5e10, 1e12, 100)
-
-escape_velocities = np.sqrt(2 * G * M / radii)
-
-plt.figure(figsize=(8,6))
-plt.plot(radii, escape_velocities, 'o')
-plt.xlabel('Orbital Radius (r) [m]')
-plt.ylabel('Escape Velocity (vₑ) [m/s]')
-plt.title('Escape Velocity vs Orbital Radius')
-plt.grid(True)
-plt.tight_layout()
-plt.savefig('escape_velocity_vs_radius.png')
-plt.show()
-```
-![Escape Velocity vs Orbital Radius](escape_velocity_vs_radius.png)
-
-## Graph 6: Total Orbital Energy vs Orbital Radius
+## Graph 1: Total Orbital Energy vs Orbital Radius
 
 ```python
 import numpy as np
@@ -226,7 +156,7 @@ plt.show()
 ```
 ![Total Orbital Energy vs Orbital Radius](total_orbital_energy_vs_radius.png)
 
-## Graph 7: T² vs r³ for Real Planets
+## Graph 2: T² vs r³ for Real Planets
 
 ```python
 radii = np.array([5.79e10, 1.082e11, 1.496e11, 2.279e11])
@@ -255,37 +185,53 @@ plt.show()
 | Earth   | 1.496 × 10¹¹            | 3.15 × 10⁷             |
 | Mars    | 2.279 × 10¹¹            | 5.94 × 10⁷             |
 
-## Graph 8: T² vs r³ with Planet Names
+## Graph 3: T² vs r³ with Planet Names
 
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Planetary Data
-radii = np.array([5.79e10, 1.082e11, 1.496e11, 2.279e11])
-periods = np.array([7.6e6, 1.94e7, 3.15e7, 5.94e7])
+# Planetary data
+radii = np.array([5.79e10, 1.082e11, 1.496e11, 2.279e11])  # [m]
+periods = np.array([7.6e6, 1.94e7, 3.15e7, 5.94e7])         # [s]
 planets = ['Mercury', 'Venus', 'Earth', 'Mars']
 
-plt.figure(figsize=(8,6))
-plt.plot(radii**3, periods**2, 'o', markersize=8, label='Planets')
+# Calculate r³ and T²
+r_cubed = radii**3
+T_squared = periods**2
 
+# Perform linear fit (least squares): T² = k * r³
+coeffs = np.polyfit(r_cubed, T_squared, 1)
+k = coeffs[0]
+
+# Create a perfect line between min and max r³
+r_fit = np.linspace(r_cubed.min()*0.9, r_cubed.max()*1.1, 500)  # daha geniş ve sık çizim için 500 nokta
+T_fit = k * r_fit
+
+# Plot the data points
+plt.figure(figsize=(8, 6))
+plt.scatter(r_cubed, T_squared, color='blue', label='Planets', s=60)  # scatter daha şık olur
+plt.plot(r_fit, T_fit, 'r-', label="Kepler's Law (T² ∝ r³)", linewidth=2)  # düzgün kırmızı çizgi
+
+# Annotate each planet
 for i in range(len(planets)):
     plt.annotate(planets[i],
-                 (radii[i]**3, periods[i]**2),
+                 (r_cubed[i], T_squared[i]),
                  textcoords="offset points",
-                 xytext=(0,10),
+                 xytext=(10, 10),
                  ha='center')
 
+# Labels and title
 plt.xlabel('Orbital Radius Cubed (r³) [m³]')
 plt.ylabel('Orbital Period Squared (T²) [s²]')
-plt.title("T² vs r³: Real Planets with Labels")
+plt.title('T² vs r³: Real Planets (Smooth Fit)')
 plt.grid(True)
 plt.legend()
 plt.tight_layout()
-plt.savefig('planets_kepler_law_annotated.png')
+plt.savefig('planets_kepler_law_smooth.png')
 plt.show()
 ```
-![T² vs r³: Real Planets with Labels](planets_kepler_law_annotated.png)
+![T² vs r³: Real Planets (Smooth Fit)](planets_kepler_law_smooth.png)
 
 # Conclusion
 
