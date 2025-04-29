@@ -124,6 +124,86 @@ These calculations show that Kepler’s Third Law allows us to estimate the mass
 - Graphical representations generated from simulations and real data.
 - A discussion on how this relationship extends to elliptical orbits and other celestial bodies.
 
+Got it! I'll show **all the computations step-by-step** clearly, using **double dollars ($$)** for the formulas — very short but complete.
+
+---
+
+# 🌍☀️ Short Note: Mass Derivation with Full Computations
+
+Kepler-Newton Law:
+
+$$
+\frac{T^2}{r^3} = \frac{4\pi^2}{G M}
+$$
+
+thus
+
+$$
+M = \frac{4\pi^2 r^3}{G T^2}
+$$
+
+---
+
+## 🌍 1. Earth's Mass (using Moon orbit)
+
+Given:  
+$r=3.84\times10^8\,\text{m}$  
+$T=27.32\,\text{days}=27.32\times86400=2.36\times10^6\,\text{s}$  
+$G=6.67430\times10^{-11}\,\mathrm{m}^3\,\mathrm{kg}^{-1}\,\mathrm{s}^{-2}$
+
+Substituting:
+
+$$
+M_{\text{Earth}} = \frac{4\pi^2(3.84\times10^8)^3}{(6.67430\times10^{-11})(2.36\times10^6)^2}
+$$
+
+First compute:  
+$(3.84\times10^8)^3=5.67\times10^{25}$  
+$(2.36\times10^6)^2=5.57\times10^{12}$
+
+Thus:
+
+$$
+M_{\text{Earth}} = \frac{4\pi^2(5.67\times10^{25})}{(6.67430\times10^{-11})(5.57\times10^{12})}
+$$
+
+Finally:
+
+$$
+M_{\text{Earth}}\approx5.97\times10^{24}\,\text{kg}
+$$
+
+---
+
+## ☀️ 2. Sun's Mass (using Earth orbit)
+
+Given:  
+$r=1.496\times10^{11}\,\text{m}$  
+$T=1\,\text{year}=3.156\times10^7\,\text{s}$  
+$G=6.67430\times10^{-11}\,\mathrm{m}^3\,\mathrm{kg}^{-1}\,\mathrm{s}^{-2}$
+
+Substituting:
+
+$$
+M_{\text{Sun}} = \frac{4\pi^2(1.496\times10^{11})^3}{(6.67430\times10^{-11})(3.156\times10^7)^2}
+$$
+
+First compute:  
+$(1.496\times10^{11})^3=3.35\times10^{33}$  
+$(3.156\times10^7)^2=9.96\times10^{14}$
+
+Thus:
+
+$$
+M_{\text{Sun}} = \frac{4\pi^2(3.35\times10^{33})}{(6.67430\times10^{-11})(9.96\times10^{14})}
+$$
+
+Finally:
+
+$$
+M_{\text{Sun}}\approx1.99\times10^{30}\,\text{kg}
+$$
+
 ---
 
 # Graphs Section
