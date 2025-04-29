@@ -156,25 +156,6 @@ plt.show()
 ```
 ![Total Orbital Energy vs Orbital Radius](total_orbital_energy_vs_radius.png)
 
-## Graph 2: T² vs r³ for Real Planets
-
-```python
-radii = np.array([5.79e10, 1.082e11, 1.496e11, 2.279e11])
-periods = np.array([7.6e6, 1.94e7, 3.15e7, 5.94e7])
-
-plt.figure(figsize=(8,6))
-plt.plot(radii**3, periods**2, 'o-', label='Planets: Mercury, Venus, Earth, Mars')
-plt.xlabel('Orbital Radius Cubed (r³) [m³]')
-plt.ylabel('Orbital Period Squared (T²) [s²]')
-plt.title('T² vs r³ for Real Planets')
-plt.grid(True)
-plt.legend()
-plt.tight_layout()
-plt.savefig('planets_kepler_law.png')
-plt.show()
-```
-
-![T² vs r³ for Real Planets](planets_kepler_law.png)
 
 ## Planetary Orbital Data Table
 
@@ -185,7 +166,7 @@ plt.show()
 | Earth   | 1.496 × 10¹¹            | 3.15 × 10⁷             |
 | Mars    | 2.279 × 10¹¹            | 5.94 × 10⁷             |
 
-## Graph 3: T² vs r³ with Planet Names
+## Graph 2: T² vs r³ with Planet Names
 
 ```python
 import numpy as np
