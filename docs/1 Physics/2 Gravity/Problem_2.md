@@ -168,3 +168,5 @@ Understanding the derivation and values of cosmic velocities is essential in mis
 - This Markdown document  
 - Embedded Python script  
 - Graphs and tables for visual comparison  
+
+[visit my colab](https://colab.research.google.com/drive/1XMrdTCJxeEjmas5uQ-j7o3AyEBTq2vIE?usp=sharing)
