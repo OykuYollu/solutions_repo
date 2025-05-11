@@ -12,20 +12,20 @@ Studying these patterns helps us understand wave behavior in a simple, visual wa
 
 ## Task
 
-A circular wave on the water surface, emanating from a point source located at \((x_0, y_0)\), can be described by the Single Disturbance equation:
+A circular wave on the water surface, emanating from a point source located at $(x_0, y_0)$, can be described by the single disturbance equation:
 
-\[
+$$
 \eta(x, y, t) = \frac{A}{\sqrt{r}} \cdot \cos(kr - \omega t + \phi)
-\]
+$$
 
-where:
+Where:
 
-- \(\eta(x, y, t)\) is the displacement of the water surface at point \((x, y)\) and time \(t\).
-- \(A\) is the amplitude of the wave.
-- \(k = \frac{2\pi}{\lambda}\) is the wave number, related to the wavelength \(\lambda\).
-- \(\omega = 2\pi f\) is the angular frequency, related to the frequency \(f\).
-- \(r = \sqrt{(x - x_0)^2 + (y - y_0)^2}\) is the distance from the source to the point \((x, y)\).
-- \(\phi\) is the initial phase.
+- $\eta(x, y, t)$ — displacement of the water surface at point $(x, y)$ and time $t$
+- $A$ — amplitude of the wave  
+- $k = \dfrac{2\pi}{\lambda}$ — wave number (related to wavelength $\lambda$)  
+- $\omega = 2\pi f$ — angular frequency (related to frequency $f$)  
+- $r = \sqrt{(x - x_0)^2 + (y - y_0)^2}$ — distance from the source to point $(x, y)$  
+- $\phi$ — initial phase
 
 ---
 
@@ -45,11 +45,13 @@ Your task is to analyze the interference patterns formed on the water surface du
 
 4. **Superposition of Waves**: Apply the principle of superposition by summing the wave displacements at each point on the water surface:
 
-\[
+$$
 \eta_{\text{sum}}(x, y, t) = \sum_{i=1}^{N} \eta_i(x, y, t)
-\]
+$$
 
-where \(N\) is the number of sources (vertices of the polygon).
+Where:
+
+- $N$ — the number of sources (i.e., the number of vertices of the polygon)
 
 ---
 
@@ -208,17 +210,17 @@ Both 2D heatmaps and a 3D animation are included.
 
 ## 📈 GIF Animations
 
-### 🔵 One Source
-![One Source](images/one_source.gif)
+### 🔵 One Source (GIF)
+![One Source](one_source.gif)
 
-### 🔵 Two Sources
-![Two Sources](images/two_sources.gif)
+### 🔵 Two Sources (GIF)
+![Two Sources](two_sources.gif)
 
-### 🔺 Triangle Sources
-![Triangle](images/triangle_sources.gif)
+### 🔺 Triangle Sources (GIF)
+![Triangle](triangle_sources.gif)
 
-### ⬟ Pentagon (3D View)
-![Pentagon 3D](images/pentagon_sources_3d.gif)
+### ⬟ Pentagon (3D View) (GIF)
+![Pentagon 3D](pentagon_sources_3d.gif)
 
 ---
 
@@ -230,12 +232,11 @@ Both 2D heatmaps and a 3D animation are included.
 # insert a simplified snippet or refer to the notebook file
 import numpy as np
 import matplotlib.pyplot as plt
-...
-
+```
 
 ## Considerations
 
-- Assume all sources emit waves with the same amplitude \(A\), wavelength \(\lambda\), and frequency \(f\).
+- Assume all sources emit waves with the same amplitude $A$, wavelength $\lambda$, and frequency $f$.
 - The waves are coherent, maintaining a constant phase difference.
 - You may use simulation and visualization tools such as Python (with libraries like Matplotlib), or other graphical software to aid in your analysis.
 
@@ -248,5 +249,11 @@ import matplotlib.pyplot as plt
 2. A detailed explanation of the interference patterns observed for the chosen regular polygon with the goal of understanding wave superposition.
 
 3. Graphical representations of the water surface showing constructive and destructive interference regions.
+
+## 🧩 Conclusion
+
+The simulations clearly demonstrate how wave interference patterns depend on the number and arrangement of sources.  
+Two sources produce the classic constructive and destructive bands, while triangle and pentagon layouts create more complex and symmetric patterns.  
+This highlights how the principle of superposition leads to rich and predictable wave behaviors in 2D media.
 
 [visit my colab](https://colab.research.google.com/drive/1UWsXvwAD7Ij8YiMYlzIEpue_a8ts-pTV?usp=sharing)
