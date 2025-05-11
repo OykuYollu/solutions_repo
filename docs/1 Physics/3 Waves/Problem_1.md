@@ -190,6 +190,49 @@ plt.show()
 > A 3D surface plot of the interference wave pattern created by two point sources placed symmetrically on the x-axis.
 
 
+# 🌊 Wave Interference Visualization
+
+This project simulates and visualizes 2D wave interference using multiple point sources.
+
+## 🎯 Objective
+
+Visualize wave interference for:
+- 1 source
+- 2 sources
+- 3 sources in triangle layout
+- 5 sources in pentagon layout
+
+Both 2D heatmaps and a 3D animation are included.
+
+---
+
+## 📈 GIF Animations
+
+### 🔵 One Source
+![One Source](images/one_source.gif)
+
+### 🔵 Two Sources
+![Two Sources](images/two_sources.gif)
+
+### 🔺 Triangle Sources
+![Triangle](images/triangle_sources.gif)
+
+### ⬟ Pentagon (3D View)
+![Pentagon 3D](images/pentagon_sources_3d.gif)
+
+---
+
+## 🧠 Python Code (in Colab)
+
+> You can find the full code in [wave_interference.ipynb](wave_interference.ipynb)
+
+```python
+# insert a simplified snippet or refer to the notebook file
+import numpy as np
+import matplotlib.pyplot as plt
+...
+
+
 ## Considerations
 
 - Assume all sources emit waves with the same amplitude \(A\), wavelength \(\lambda\), and frequency \(f\).
