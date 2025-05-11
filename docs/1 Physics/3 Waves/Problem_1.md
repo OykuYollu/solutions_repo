@@ -224,16 +224,6 @@ Both 2D heatmaps and a 3D animation are included.
 
 ---
 
-## 🧠 Python Code (in Colab)
-
-> You can find the full code in [wave_interference.ipynb](wave_interference.ipynb)
-
-```python
-# insert a simplified snippet or refer to the notebook file
-import numpy as np
-import matplotlib.pyplot as plt
-```
-
 ## Considerations
 
 - Assume all sources emit waves with the same amplitude $A$, wavelength $\lambda$, and frequency $f$.
