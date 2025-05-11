@@ -178,18 +178,18 @@
 <p>Studying these patterns helps us understand wave behavior in a simple, visual way. It also allows us to explore important concepts, like the relationship between wave phase and the effects of multiple sources. This task offers a hands-on approach to learning about wave interactions and their real-world applications, making it an interesting and engaging way to dive into wave physics.</p>
 <hr/>
 <h2 id="task">Task</h2>
-<p>A circular wave on the water surface, emanating from a point source located at <span class="arithmatex">\((x_0, y_0)\)</span>, can be described by the Single Disturbance equation:</p>
+<p>A circular wave on the water surface, emanating from a point source located at <span class="arithmatex">\((x_0, y_0)\)</span>, can be described by the single disturbance equation:</p>
 <div class="arithmatex">\[
 \eta(x, y, t) = \frac{A}{\sqrt{r}} \cdot \cos(kr - \omega t + \phi)
 \]</div>
-<p>where:</p>
+<p>Where:</p>
 <ul>
-<li><span class="arithmatex">\(\eta(x, y, t)\)</span> is the displacement of the water surface at point <span class="arithmatex">\((x, y)\)</span> and time <span class="arithmatex">\(t\)</span>.</li>
-<li><span class="arithmatex">\(A\)</span> is the amplitude of the wave.</li>
-<li><span class="arithmatex">\(k = \frac{2\pi}{\lambda}\)</span> is the wave number, related to the wavelength <span class="arithmatex">\(\lambda\)</span>.</li>
-<li><span class="arithmatex">\(\omega = 2\pi f\)</span> is the angular frequency, related to the frequency <span class="arithmatex">\(f\)</span>.</li>
-<li><span class="arithmatex">\(r = \sqrt{(x - x_0)^2 + (y - y_0)^2}\)</span> is the distance from the source to the point <span class="arithmatex">\((x, y)\)</span>.</li>
-<li><span class="arithmatex">\(\phi\)</span> is the initial phase.</li>
+<li><span class="arithmatex">\(\eta(x, y, t)\)</span> — displacement of the water surface at point <span class="arithmatex">\((x, y)\)</span> and time <span class="arithmatex">\(t\)</span></li>
+<li><span class="arithmatex">\(A\)</span> — amplitude of the wave  </li>
+<li><span class="arithmatex">\(k = \dfrac{2\pi}{\lambda}\)</span> — wave number (related to wavelength <span class="arithmatex">\(\lambda\)</span>)  </li>
+<li><span class="arithmatex">\(\omega = 2\pi f\)</span> — angular frequency (related to frequency <span class="arithmatex">\(f\)</span>)  </li>
+<li><span class="arithmatex">\(r = \sqrt{(x - x_0)^2 + (y - y_0)^2}\)</span> — distance from the source to point <span class="arithmatex">\((x, y)\)</span> </li>
+<li><span class="arithmatex">\(\phi\)</span> — initial phase</li>
 </ul>
 <hr/>
 <h2 id="problem-statement">Problem Statement</h2>
@@ -213,7 +213,10 @@
 <div class="arithmatex">\[
 \eta_{\text{sum}}(x, y, t) = \sum_{i=1}^{N} \eta_i(x, y, t)
 \]</div>
-<p>where <span class="arithmatex">\(N\)</span> is the number of sources (vertices of the polygon).</p>
+<p>Where:</p>
+<ul>
+<li><span class="arithmatex">\(N\)</span> — the number of sources (i.e., the number of vertices of the polygon)</li>
+</ul>
 <hr/>
 <p>The following code simulates the wave propagation from a single point source on a 2D water surface. Both a heatmap and 3D surface plot are used to visualize the wave pattern.</p>
 <pre><code class="language-python">import numpy as np
@@ -352,24 +355,23 @@ plt.show()
 <p>Both 2D heatmaps and a 3D animation are included.</p>
 <hr/>
 <h2 id="gif-animations">📈 GIF Animations</h2>
-<h3 id="one-source">🔵 One Source</h3>
-<p><img alt="One Source" src="images/one_source.gif"/></p>
-<h3 id="two-sources">🔵 Two Sources</h3>
-<p><img alt="Two Sources" src="images/two_sources.gif"/></p>
-<h3 id="triangle-sources">🔺 Triangle Sources</h3>
-<p><img alt="Triangle" src="images/triangle_sources.gif"/></p>
-<h3 id="pentagon-3d-view">⬟ Pentagon (3D View)</h3>
-<p><img alt="Pentagon 3D" src="images/pentagon_sources_3d.gif"/></p>
+<h3 id="one-source-gif">🔵 One Source (GIF)</h3>
+<p><img alt="One Source" src="../one_source.gif"/></p>
+<h3 id="two-sources-gif">🔵 Two Sources (GIF)</h3>
+<p><img alt="Two Sources" src="../two_sources.gif"/></p>
+<h3 id="triangle-sources-gif">🔺 Triangle Sources (GIF)</h3>
+<p><img alt="Triangle" src="../triangle_sources.gif"/></p>
+<h3 id="pentagon-3d-view-gif">⬟ Pentagon (3D View) (GIF)</h3>
+<p><img alt="Pentagon 3D" src="../pentagon_sources_3d.gif"/></p>
 <hr/>
 <h2 id="python-code-in-colab">🧠 Python Code (in Colab)</h2>
 <blockquote>
 <p>You can find the full code in <a href="wave_interference.ipynb">wave_interference.ipynb</a></p>
 </blockquote>
-<p>```python</p>
-<h1 id="insert-a-simplified-snippet-or-refer-to-the-notebook-file">insert a simplified snippet or refer to the notebook file</h1>
-<p>import numpy as np
+<pre><code class="language-python"># insert a simplified snippet or refer to the notebook file
+import numpy as np
 import matplotlib.pyplot as plt
-...</p>
+</code></pre>
 <h2 id="considerations">Considerations</h2>
 <ul>
 <li>Assume all sources emit waves with the same amplitude <span class="arithmatex">\(A\)</span>, wavelength <span class="arithmatex">\(\lambda\)</span>, and frequency <span class="arithmatex">\(f\)</span>.</li>
@@ -389,6 +391,10 @@ import matplotlib.pyplot as plt
 <p>Graphical representations of the water surface showing constructive and destructive interference regions.</p>
 </li>
 </ol>
+<h2 id="conclusion">🧩 Conclusion</h2>
+<p>The simulations clearly demonstrate how wave interference patterns depend on the number and arrangement of sources.<br/>
+Two sources produce the classic constructive and destructive bands, while triangle and pentagon layouts create more complex and symmetric patterns.<br/>
+This highlights how the principle of superposition leads to rich and predictable wave behaviors in 2D media.</p>
 <p><a href="https://colab.research.google.com/drive/1UWsXvwAD7Ij8YiMYlzIEpue_a8ts-pTV?usp=sharing">visit my colab</a></p>
 </div>
 </div><footer>
