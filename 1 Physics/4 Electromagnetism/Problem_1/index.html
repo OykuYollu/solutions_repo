@@ -6,13 +6,13 @@
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="../../../img/favicon.ico" rel="shortcut icon"/>
-<title>Problem 1 - Physics and Mathematics</title>
+<title>Electromagnetism - Physics and Mathematics</title>
 <link href="../../../css/theme.css" rel="stylesheet"/>
 <link href="../../../css/theme_extra.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
 <script>
         // Current page data
-        var mkdocs_page_name = "Problem 1";
+        var mkdocs_page_name = "Electromagnetism";
         var mkdocs_page_input_path = "1 Physics/4 Electromagnetism/Problem_1.md";
         var mkdocs_page_url = null;
       </script>
@@ -70,8 +70,58 @@
 </li>
 <li class="toctree-l1 current"><a class="reference internal current">4 Electromagnetism</a>
 <ul class="current">
-<li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 1</a>
+<li class="toctree-l2 current"><a class="reference internal current" href="#">Electromagnetism</a>
 <ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="#problem-1-simulating-the-effects-of-the-lorentz-force">Problem 1: Simulating the Effects of the Lorentz Force</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#motivation">Motivation</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#task-overview">Task Overview</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#lorentz-force-simulation-circular-motion">Lorentz Force Simulation: Circular Motion</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#introduction">Introduction</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#parameters">Parameters</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#output">Output</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#code">Code</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#lorentz-force-simulation-helical-spiral-motion">Lorentz Force Simulation: Helical (Spiral) Motion</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#introduction_1">Introduction</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#parameters_1">Parameters</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#output_1">Output</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#code_1">Code</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#lorentz-force-simulation-drift-motion-e-b">Lorentz Force Simulation: Drift Motion (E × B)</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#introduction_2">Introduction</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#parameters_2">Parameters</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#output_2">Output</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#code_2">Code</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#summary-notes">Summary &amp; Notes</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#deliverables">📦 Deliverables</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#conclusion">🧩 Conclusion</a>
+</li>
 </ul>
 </li>
 </ul>
@@ -163,7 +213,7 @@
 <li><a aria-label="Docs" class="icon icon-home" href="../../.."></a></li>
 <li class="breadcrumb-item">1 Physics</li>
 <li class="breadcrumb-item">4 Electromagnetism</li>
-<li class="breadcrumb-item active">Problem 1</li>
+<li class="breadcrumb-item active">Electromagnetism</li>
 <li class="wy-breadcrumbs-aside">
 </li>
 </ul>
@@ -171,7 +221,222 @@
 </div>
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
-<h1 id="problem-1">Problem 1</h1>
+<h1 id="electromagnetism">Electromagnetism</h1>
+<h2 id="problem-1-simulating-the-effects-of-the-lorentz-force">Problem 1: Simulating the Effects of the Lorentz Force</h2>
+<h3 id="motivation">Motivation</h3>
+<p>The Lorentz force, expressed as <strong>F = qE + qv × B</strong>, governs the motion of charged particles in electric and magnetic fields. It is foundational in fields like plasma physics, particle accelerators, and astrophysics. Through simulations, we can explore its practical applications and visualize complex particle trajectories.</p>
+<hr/>
+<h2 id="task-overview">Task Overview</h2>
+<ol>
+<li><strong>Explore Applications</strong> </li>
+<li>Particle accelerators  </li>
+<li>Mass spectrometers  </li>
+<li>Plasma confinement  </li>
+<li>
+<p>Magnetic traps</p>
+</li>
+<li>
+<p><strong>Simulate Particle Motion</strong> </p>
+</li>
+<li>Under a uniform magnetic field  </li>
+<li>Under combined electric and magnetic fields  </li>
+<li>
+<p>Under crossed electric and magnetic fields  </p>
+</li>
+<li>
+<p><strong>Parameter Exploration</strong> </p>
+</li>
+<li>Electric and magnetic field strengths  </li>
+<li>Initial velocity  </li>
+<li>
+<p>Charge and mass</p>
+</li>
+<li>
+<p><strong>Visualize</strong> </p>
+</li>
+<li>Circle  </li>
+<li>Spiral in z-direction  </li>
+<li>Drift motion  </li>
+<li>Include labeled 2D/3D plots</li>
+</ol>
+<hr/>
+<h2 id="lorentz-force-simulation-circular-motion">Lorentz Force Simulation: Circular Motion</h2>
+<h3 id="introduction">Introduction</h3>
+<p>This simulation models the motion of a charged particle in a <strong>uniform magnetic field</strong> with <strong>no electric field</strong>. The force is:</p>
+<pre><code>F = q (v × B)
+</code></pre>
+<p>This results in <strong>circular motion</strong> in the x-y plane.</p>
+<h3 id="parameters">Parameters</h3>
+<ul>
+<li>Charge (q): 1 C  </li>
+<li>Mass (m): 0.001 kg (1 gram)  </li>
+<li>Magnetic Field (B): [0, 0, 1] T  </li>
+<li>Initial Velocity: [1, 0, 0] m/s</li>
+</ul>
+<h3 id="output">Output</h3>
+<p>The following image shows the particle’s circular motion:</p>
+<p><img alt="Circular Motion" src="../circular_motion.png"/></p>
+<h3 id="code">Code</h3>
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+
+q = 1.0
+m = 0.001
+B = np.array([0, 0, 1.0])
+r0 = np.array([0.0, 0.0, 0.0])
+v0 = np.array([1.0, 0.0, 0.0])
+
+dt = 0.001
+T = 10
+N = int(T / dt)
+r = np.zeros((N, 3))
+v = np.zeros((N, 3))
+t = np.linspace(0, T, N)
+r[0], v[0] = r0, v0
+
+for i in range(N - 1):
+    F = q * np.cross(v[i], B)
+    a = F / m
+    v[i + 1] = v[i] + a * dt
+    r[i + 1] = r[i] + v[i] * dt
+
+fig = plt.figure(figsize=(8, 6))
+ax = fig.add_subplot(111, projection='3d')
+ax.plot(r[:, 0], r[:, 1], r[:, 2], label='Particle trajectory')
+ax.set_xlabel('x'); ax.set_ylabel('y'); ax.set_zlabel('z')
+ax.set_title('Circular Motion in Uniform Magnetic Field')
+ax.legend(); plt.tight_layout()
+plt.savefig("circular_motion.png", dpi=300)
+plt.show()
+</code></pre>
+<hr/>
+<h2 id="lorentz-force-simulation-helical-spiral-motion">Lorentz Force Simulation: Helical (Spiral) Motion</h2>
+<h3 id="introduction_1">Introduction</h3>
+<p>By adding a <strong>z-component</strong> to the initial velocity, the particle now spirals forward, creating <strong>helical motion</strong>.</p>
+<h3 id="parameters_1">Parameters</h3>
+<ul>
+<li>Charge (q): 1 C  </li>
+<li>Mass (m): 0.001 kg  </li>
+<li>Magnetic Field (B): [0, 0, 1] T  </li>
+<li>Initial Velocity: [1, 0, 0.5] m/s</li>
+</ul>
+<h3 id="output_1">Output</h3>
+<p>The following image shows the particle’s <strong>helical (spiral) motion</strong>:</p>
+<p><img alt="Spiral Motion" src="../spiral_motion.png"/></p>
+<h3 id="code_1">Code</h3>
+<pre><code class="language-python">q = 1.0
+m = 0.001
+B = np.array([0, 0, 1.0])
+r0 = np.array([0.0, 0.0, 0.0])
+v0 = np.array([1.0, 0.0, 0.5])
+
+dt = 0.001
+T = 10
+N = int(T / dt)
+r = np.zeros((N, 3))
+v = np.zeros((N, 3))
+t = np.linspace(0, T, N)
+r[0], v[0] = r0, v0
+
+for i in range(N - 1):
+    F = q * np.cross(v[i], B)
+    a = F / m
+    v[i + 1] = v[i] + a * dt
+    r[i + 1] = r[i] + v[i] * dt
+
+fig = plt.figure(figsize=(8, 6))
+ax = fig.add_subplot(111, projection='3d')
+ax.plot(r[:, 0], r[:, 1], r[:, 2], label='Helical trajectory')
+ax.set_xlabel('x'); ax.set_ylabel('y'); ax.set_zlabel('z')
+ax.set_title('Spiral Motion in Uniform Magnetic Field')
+ax.legend(); plt.tight_layout()
+plt.savefig("spiral_motion.png", dpi=300)
+plt.show()
+</code></pre>
+<hr/>
+<h2 id="lorentz-force-simulation-drift-motion-e-b">Lorentz Force Simulation: Drift Motion (E × B)</h2>
+<h3 id="introduction_2">Introduction</h3>
+<p>When a <strong>perpendicular electric field</strong> is introduced, the particle undergoes circular motion with a <strong>net drift</strong> in a fixed direction. This is known as <strong>E × B drift</strong>.</p>
+<h3 id="parameters_2">Parameters</h3>
+<ul>
+<li>Electric Field (E): [1, 0, 0] V/m  </li>
+<li>Magnetic Field (B): [0, 0, 1] T  </li>
+<li>Charge (q): 1 C  </li>
+<li>Mass (m): 0.001 kg  </li>
+<li>Initial Velocity: [0, 1, 0] m/s  </li>
+<li>Expected Drift: [0, 1, 0] m/s</li>
+</ul>
+<h3 id="output_2">Output</h3>
+<p>The following image shows the particle’s <strong>drift motion</strong> caused by crossed E and B fields:</p>
+<p><img alt="Drift Motion" src="../drift_motion.png"/></p>
+<h3 id="code_2">Code</h3>
+<pre><code class="language-python">q = 1.0
+m = 0.001
+E = np.array([1.0, 0.0, 0.0])
+B = np.array([0.0, 0.0, 1.0])
+r0 = np.array([0.0, 0.0, 0.0])
+v0 = np.array([0.0, 1.0, 0.0])
+
+dt = 0.001
+T = 10
+N = int(T / dt)
+r = np.zeros((N, 3))
+v = np.zeros((N, 3))
+t = np.linspace(0, T, N)
+r[0], v[0] = r0, v0
+
+for i in range(N - 1):
+    F = q * (E + np.cross(v[i], B))
+    a = F / m
+    v[i + 1] = v[i] + a * dt
+    r[i + 1] = r[i] + v[i] * dt
+
+fig = plt.figure(figsize=(8, 6))
+ax = fig.add_subplot(111, projection='3d')
+ax.plot(r[:, 0], r[:, 1], r[:, 2], label='Drift trajectory')
+ax.set_xlabel('x'); ax.set_ylabel('y'); ax.set_zlabel('z')
+ax.set_title('Drift Motion in E × B Fields')
+ax.legend(); plt.tight_layout()
+plt.savefig("drift_motion.png", dpi=300)
+plt.show()
+</code></pre>
+<hr/>
+<h2 id="summary-notes">Summary &amp; Notes</h2>
+<ul>
+<li>The <strong>circular and helical motions</strong> are caused by the magnetic field acting on the charged particle.</li>
+<li>The <strong>E × B drift</strong> results from crossed electric and magnetic fields.</li>
+<li>All simulations use the <strong>Euler method</strong>.</li>
+<li>You can extend these simulations to:</li>
+<li>Non-uniform fields  </li>
+<li>Multiple particles  </li>
+<li>Relativistic speeds  </li>
+</ul>
+<h2 id="deliverables">📦 Deliverables</h2>
+<ol>
+<li>A <strong>Markdown report</strong> documenting the physics background and simulation results for the Lorentz force.  </li>
+<li>Embedded <strong>Python scripts</strong> modeling:</li>
+<li>Circular motion  </li>
+<li>Helical motion  </li>
+<li>E × B drift motion  </li>
+<li><strong>Graphical outputs</strong> (<code>.png</code> files) showing particle trajectories under different field configurations:</li>
+<li><code>circular_motion.png</code> </li>
+<li><code>spiral_motion.png</code> </li>
+<li><code>drift_motion.png</code> </li>
+<li><strong>Interpretation of results</strong> based on field strength, direction, and particle velocity.</li>
+</ol>
+<hr/>
+<h2 id="conclusion">🧩 Conclusion</h2>
+<p>The Lorentz force simulations successfully visualize how charged particles move in response to magnetic and electric fields.<br/>
+We observed three key behaviors:</p>
+<ul>
+<li><strong>Circular motion</strong> under a uniform magnetic field  </li>
+<li><strong>Helical motion</strong> when the initial velocity has a component along the field  </li>
+<li><strong>E × B drift</strong> in the presence of perpendicular electric and magnetic fields  </li>
+</ul>
+<p>These results align with electromagnetic theory and offer insight into the design of devices like <strong>cyclotrons</strong>, <strong>mass spectrometers</strong>, and <strong>plasma confinement systems</strong>.<br/>
+Overall, the simulations deepen our understanding of particle dynamics and demonstrate how classical physics principles translate into motion.</p>
+<p><a href="https://colab.research.google.com/drive/13YVItI4Izv_K7l5Y2Z6XDept6OykUdaY?usp=sharing">visit my colab</a></p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
