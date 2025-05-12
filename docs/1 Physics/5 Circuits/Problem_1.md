@@ -148,7 +148,8 @@ This test case demonstrates how the algorithm handles **parallel connections** b
 B+───┤                  ├─── B−
      └──── R2 = 6Ω ─────┘ 
  
- ```
+```
+
 
 Expected equivalent resistance:
 
