@@ -153,7 +153,9 @@ B+───┤                  ├─── B−
 
 Expected equivalent resistance:
 
-$R_\text{eq} = \frac{R_1 \cdot R_2}{R_1 + R_2} = \frac{4 \cdot 6}{4 + 6} = 2.4\,\Omega$
+$$
+R_\text{eq} = \frac{R_1 \cdot R_2}{R_1 + R_2} = \frac{4 \cdot 6}{4 + 6} = 2.4\,\Omega
+$$
 
 
 ---
