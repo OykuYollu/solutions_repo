@@ -82,6 +82,12 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#task">🎯 Task</a>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#example-circuit">🔌 Example Circuit</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#original-circuit-output">🔧 Original Circuit Output</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#simplified-circuit-output">✅ Simplified Circuit Output</a>
+</li>
 </ul>
 </li>
 </ul>
@@ -191,15 +197,15 @@ While traditional methods involve applying series and parallel resistor rules, g
 - Detects and reduces parallel connections<br/>
 - Outputs the final equivalent resistance  </p>
 <hr/>
-<h2 id="example-circuit">🧪 Example Circuit</h2>
-<p>Circuit layout:</p>
-<p>B+ — R1 — R2 — R3 — R4 — R5 — B-</p>
-<p>Each resistor has:
-- R1 = 2 Ω<br/>
-- R2 = 3 Ω<br/>
-- R3 = 6 Ω<br/>
-- R4 = 2 Ω<br/>
-- R5 = 3 Ω</p>
+<h3 id="example-circuit">🔌 Example Circuit</h3>
+<p><strong>Circuit layout:</strong></p>
+<p>B+ ── R1 ── R2 ── R3 ── R4 ── R5 ── B−</p>
+<p><strong>Each resistor has:</strong>
+- R1 = 2 Ω<br/>
+- R2 = 3 Ω<br/>
+- R3 = 6 Ω<br/>
+- R4 = 2 Ω<br/>
+- R5 = 3 Ω</p>
 <pre><code class="language-python"># STEP 1: Install NetworkX (only needed once in Colab)
 !pip install networkx
 
@@ -293,8 +299,8 @@ plt.show()
 <hr/>
 <h2 id="bonus-test-case-parallel-resistors">🧪 Bonus Test Case: Parallel Resistors</h2>
 <p>This test case demonstrates how the algorithm handles <strong>parallel connections</strong> between two resistors.</p>
-<pre><code> Circuit layout:
-
+<p><strong>Circuit layout:</strong></p>
+<pre><code>
      ┌──── R1 = 4Ω ─────┐
 B+───┤                  ├─── B−
      └──── R2 = 6Ω ─────┘ 
