@@ -203,6 +203,16 @@ plt.tight_layout()
 plt.savefig("parallel_simplified.png", dpi=300)
 plt.show()
 ```
+---
+
+### 🖼 Bonus Circuit Preview
+
+
+#### 🔶 Before:
+![Original Parallel](parallel_original.png)
+
+#### 🔷 After:
+![Simplified Parallel](parallel_simplified.png)
 
 ## 📦 Deliverables
 
