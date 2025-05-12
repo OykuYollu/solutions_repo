@@ -23,18 +23,19 @@ This script:
 
 ---
 
-## 🧪 Example Circuit
+### 🔌 Example Circuit
 
-Circuit layout:
+**Circuit layout:**
 
-B+ — R1 — R2 — R3 — R4 — R5 — B-
+B+ ── R1 ── R2 ── R3 ── R4 ── R5 ── B−
 
-Each resistor has:
-- R1 = 2 Ω  
-- R2 = 3 Ω  
-- R3 = 6 Ω  
-- R4 = 2 Ω  
-- R5 = 3 Ω
+**Each resistor has:**
+- R1 = 2 Ω  
+- R2 = 3 Ω  
+- R3 = 6 Ω  
+- R4 = 2 Ω  
+- R5 = 3 Ω
+
 
 ```python
 # STEP 1: Install NetworkX (only needed once in Colab)
@@ -139,9 +140,9 @@ plt.show()
 
 This test case demonstrates how the algorithm handles **parallel connections** between two resistors.
 
+**Circuit layout:**
 
 ```
- Circuit layout:
 
      ┌──── R1 = 4Ω ─────┐
 B+───┤                  ├─── B−
