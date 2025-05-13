@@ -108,6 +108,73 @@ plt.show()
 ```
 
 ---
+# 3D Trajectory of a Charged Particle in Inclined E and B Fields
+
+## Description:
+    This script simulates the motion of a charged particle using the Boris algorithm
+    in the presence of a uniform electric field and an inclined magnetic field.
+    The result is a complex drift trajectory due to the combined E × B effects.
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+
+# Constants
+q = 1.6e-19      # Charge of particle (C)
+m = 9.11e-31     # Mass of particle (kg, electron)
+E = np.array([0, 0, 1e3])     # Electric field (V/m)
+B = np.array([0.1, 0, 1])     # Inclined magnetic field (T)
+
+# Time parameters
+dt = 1e-11
+t_max = 1e-7
+steps = int(t_max / dt)
+
+# Initial conditions
+r = np.zeros((steps, 3))  # Position
+v = np.zeros((steps, 3))  # Velocity
+r[0] = [0, 0, 0]
+v[0] = [1e5, 0, 0]  # Initial velocity
+
+# Boris algorithm for particle motion
+def boris_push(v, E, B, dt, q, m):
+    t = (q * B / m) * (dt / 2)
+    s = 2 * t / (1 + np.dot(t, t))
+    v_minus = v + (q * E / m) * (dt / 2)
+    v_prime = v_minus + np.cross(v_minus, t)
+    v_plus = v_minus + np.cross(v_prime, s)
+    v_new = v_plus + (q * E / m) * (dt / 2)
+    return v_new
+
+# Simulation loop
+for i in range(1, steps):
+    v[i] = boris_push(v[i-1], E, B, dt, q, m)
+    r[i] = r[i-1] + v[i] * dt
+
+# Plotting
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+ax.plot(r[:, 0], r[:, 1], r[:, 2], lw=0.5)
+ax.set_title("Complex 3D trajectory (inclined B)")
+ax.set_xlabel("x")
+ax.set_ylabel("y")
+ax.set_zlabel("z")
+plt.tight_layout()
+
+# ✅ Save the figure
+plt.savefig("complex_trajectory.png", dpi=300)
+
+# Show the plot
+plt.show()
+```
+
+## Complex 3D Trajectory (Inclined Magnetic Field)
+
+The figure below shows the trajectory of an electron under an inclined magnetic field and a perpendicular electric field using the Boris algorithm.
+
+![Complex 3D trajectory](complex_trajectory.png)
+
 
 ## Lorentz Force Simulation: Helical (Spiral) Motion
 
