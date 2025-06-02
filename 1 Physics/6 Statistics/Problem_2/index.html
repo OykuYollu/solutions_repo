@@ -6,13 +6,13 @@
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="../../../img/favicon.ico" rel="shortcut icon"/>
-<title>Problem 2 - Physics and Mathematics</title>
+<title>Problem 2: Monte Carlo Methods for Estimating π - Physics and Mathematics</title>
 <link href="../../../css/theme.css" rel="stylesheet"/>
 <link href="../../../css/theme_extra.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
 <script>
         // Current page data
-        var mkdocs_page_name = "Problem 2";
+        var mkdocs_page_name = "Problem 2: Monte Carlo Methods for Estimating \u03c0";
         var mkdocs_page_input_path = "1 Physics/6 Statistics/Problem_2.md";
         var mkdocs_page_url = null;
       </script>
@@ -84,8 +84,58 @@
 <ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../Problem_1/">Problem 1: Exploring the Central Limit Theorem through Simulations</a>
 </li>
-<li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 2</a>
+<li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 2: Monte Carlo Methods for Estimating π</a>
 <ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="#objective">🎯 Objective</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#method-1-circle-in-a-square-random-point-method">🌀 Method 1: Circle in a Square (Random Point Method)</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#how-it-works">💡 How it Works</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#simulation-parameters">🧪 Simulation Parameters</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#python-code">🐍 Python Code</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#required-visuals">📸 Required Visuals</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#1-full-square-showing-insideoutside-points">✅ 1. Full square showing inside/outside points</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#2-estimate-vs-number-of-points-convergence-plot">✅ 2. π Estimate vs Number of Points (Convergence Plot)</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#convergence-plot">📈 Convergence Plot</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#result">📌 Result</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#observations">🔍 Observations</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#next-step">✅ Next Step</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#method-2-buffons-needle">🪡 Method 2: Buffon's Needle</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#how-it-works_1">💡 How it Works</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#simulation-parameters_1">🧪 Simulation Parameters</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#python-code_1">🐍 Python Code</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#required-visual">📸 Required Visual</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#buffons-needle-result-preview">🧵 Buffon’s Needle Result Preview</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#result_1">📌 Result</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#observations_1">🔍 Observations</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#final-comparison">✅ Final Comparison</a>
+</li>
 </ul>
 </li>
 </ul>
@@ -163,7 +213,7 @@
 <li><a aria-label="Docs" class="icon icon-home" href="../../.."></a></li>
 <li class="breadcrumb-item">1 Physics</li>
 <li class="breadcrumb-item">6 Statistics</li>
-<li class="breadcrumb-item active">Problem 2</li>
+<li class="breadcrumb-item active">Problem 2: Monte Carlo Methods for Estimating π</li>
 <li class="wy-breadcrumbs-aside">
 </li>
 </ul>
@@ -171,7 +221,227 @@
 </div>
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
-<h1 id="problem-2">Problem 2</h1>
+<h1 id="problem-2-monte-carlo-methods-for-estimating">Problem 2: Monte Carlo Methods for Estimating π</h1>
+<h2 id="objective">🎯 Objective</h2>
+<p>To estimate the value of <strong>π</strong> using <strong>Monte Carlo simulation methods</strong>.<br/>
+In this section, we focus on the <strong>"Circle-in-a-Square" method</strong>, which uses random point generation.</p>
+<hr/>
+<h2 id="method-1-circle-in-a-square-random-point-method">🌀 Method 1: Circle in a Square (Random Point Method)</h2>
+<h3 id="how-it-works">💡 How it Works</h3>
+<p>We simulate random points inside a unit square of size [0,1] × [0,1].<br/>
+A quarter-circle of radius 1 is drawn inside this square (centered at (0,0)).</p>
+<p>For each point:
+- If <strong>x² + y² ≤ 1</strong>, it lies inside the quarter-circle.
+- Otherwise, it's outside.</p>
+<p>The ratio of points inside the circle to total points approximates the area of the circle:</p>
+<div class="arithmatex">\[
+\pi \approx 4 \times \frac{\text{Number of points inside}}{\text{Total number of points}}
+\]</div>
+<hr/>
+<h2 id="simulation-parameters">🧪 Simulation Parameters</h2>
+<ul>
+<li>Total number of points: <strong>100,000</strong></li>
+<li>Each point: (x, y) ∈ [0, 1]</li>
+<li>π is estimated using the ratio method</li>
+</ul>
+<hr/>
+<h2 id="python-code">🐍 Python Code</h2>
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+
+# Total number of points
+N = 100_000
+
+# Generate random x and y coordinates
+x = np.random.rand(N)
+y = np.random.rand(N)
+
+# Calculate which points fall inside the quarter-circle
+inside = x**2 + y**2 &lt;= 1
+
+# Estimate π
+pi_estimate = 4 * np.sum(inside) / N
+print(f"Estimated π: {pi_estimate:.6f}")
+
+# Plot
+plt.figure(figsize=(6, 6))
+plt.scatter(x[inside], y[inside], color='green', s=1, label='Inside Circle')
+plt.scatter(x[~inside], y[~inside], color='red', s=1, label='Outside Circle')
+plt.legend()
+plt.title(f"Monte Carlo Estimation of π\nEstimated π ≈ {pi_estimate:.6f}")
+plt.xlabel("x")
+plt.ylabel("y")
+plt.axis("square")
+plt.savefig("montecarlo_pi.png", dpi=300)
+plt.show()
+</code></pre>
+<hr/>
+<h2 id="required-visuals">📸 Required Visuals</h2>
+<h3 id="1-full-square-showing-insideoutside-points">✅ 1. Full square showing inside/outside points</h3>
+<ul>
+<li>Green dots = inside the quarter-circle  </li>
+<li>Red dots = outside the quarter-circle  </li>
+<li>Preview:  </li>
+</ul>
+<p><img alt="Monte Carlo π Estimation" src="../montecarlo_pi.png"/></p>
+<hr/>
+<h3 id="2-estimate-vs-number-of-points-convergence-plot">✅ 2. π Estimate vs Number of Points (Convergence Plot)</h3>
+<pre><code class="language-python"># Convergence plot: π vs number of points
+import numpy as np
+import matplotlib.pyplot as plt
+
+Ns = np.linspace(100, 100000, 100).astype(int)
+estimates = []
+
+for n in Ns:
+    x = np.random.rand(n)
+    y = np.random.rand(n)
+    inside = x**2 + y**2 &lt;= 1
+    pi_est = 4 * np.sum(inside) / n
+    estimates.append(pi_est)
+
+plt.figure(figsize=(10, 5))
+plt.plot(Ns, estimates, label='Estimated π')
+plt.axhline(np.pi, color='red', linestyle='--', label='Actual π')
+plt.title("Convergence of π Estimate with Increasing Points")
+plt.xlabel("Number of Points")
+plt.ylabel("Estimated π")
+plt.legend()
+plt.grid(True)
+plt.savefig("pi_convergence_plot.png", dpi=300)
+plt.show()
+</code></pre>
+<h3 id="convergence-plot">📈 Convergence Plot</h3>
+<p>This graph shows how the estimated value of π approaches the real value as more points are used:</p>
+<p><img alt="π Convergence Plot" src="../pi_convergence_plot.png"/></p>
+<hr/>
+<h2 id="result">📌 Result</h2>
+<p>Using 100,000 random points, we obtained:</p>
+<p><strong>Estimated π ≈ <code>3.14...</code></strong> (random-dependent)<br/>
+As the number of points increases, the estimate converges to <strong>π ≈ 3.14159</strong></p>
+<hr/>
+<h2 id="observations">🔍 Observations</h2>
+<ul>
+<li>The method is very simple to implement.</li>
+<li>Higher number of points gives better estimates.</li>
+<li>Fluctuation decreases with more samples (Law of Large Numbers).</li>
+<li>This visually demonstrates the strength of Monte Carlo methods.</li>
+</ul>
+<hr/>
+<h2 id="next-step">✅ Next Step</h2>
+<p>We will now proceed to <strong>Buffon's Needle</strong> simulation as the second Monte Carlo approach for π estimation.</p>
+<hr/>
+<h2 id="method-2-buffons-needle">🪡 Method 2: Buffon's Needle</h2>
+<h3 id="how-it-works_1">💡 How it Works</h3>
+<p>This method simulates the classic <strong>Buffon's Needle experiment</strong>, where a needle is dropped onto a surface with <strong>equally spaced parallel lines</strong>, and we calculate the probability of it crossing a line.</p>
+<p>If the length of the needle <strong>L</strong> is less than or equal to the spacing between the lines <strong>d</strong>, then the probability of a needle crossing a line is related to π:</p>
+<div class="arithmatex">\[
+\pi \approx \frac{2 \times L \times N}{d \times H}
+\]</div>
+<p>Where:
+- <strong>L</strong> = length of the needle
+- <strong>d</strong> = distance between the lines
+- <strong>N</strong> = number of throws
+- <strong>H</strong> = number of hits (intersections with a line)</p>
+<hr/>
+<h2 id="simulation-parameters_1">🧪 Simulation Parameters</h2>
+<ul>
+<li>Needle length <strong>L = 1</strong></li>
+<li>Distance between lines <strong>d = 2</strong></li>
+<li>Number of throws <strong>N = 100,000</strong></li>
+<li>π is estimated using hit ratio</li>
+</ul>
+<hr/>
+<h2 id="python-code_1">🐍 Python Code</h2>
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+
+# Parameters
+L = 1.0  # Needle length
+d = 2.0  # Distance between lines
+N = 100_000  # Number of throws
+
+# Random center positions and angles
+centers = np.random.uniform(0, d/2, size=N)
+angles = np.random.uniform(0, np.pi/2, size=N)
+
+# Check if needle crosses a line
+hits = centers &lt;= (L/2) * np.sin(angles)
+H = np.sum(hits)
+
+# Estimate π
+pi_est_buffon = (2 * L * N) / (d * H)
+print(f"Estimated π using Buffon's Needle: {pi_est_buffon:.6f}")
+
+# Optional visualization
+plt.figure(figsize=(8, 6))
+plt.title("Buffon's Needle Experiment - Cross vs No Cross")
+for i in range(500):
+    x_center = np.random.uniform(0, 10)
+    theta = np.random.uniform(0, np.pi)
+    x0 = x_center - (L/2) * np.cos(theta)
+    x1 = x_center + (L/2) * np.cos(theta)
+    y = i / 50
+    color = "red" if int(x0 // d) != int(x1 // d) else "gray"
+    plt.plot([x0, x1], [y, y], color=color, linewidth=0.5)
+
+for x in np.arange(0, 20, d):
+    plt.axvline(x, color='black', linestyle='--', linewidth=0.5)
+
+plt.xlim(0, 20)
+plt.ylim(0, 10)
+plt.xlabel("x")
+plt.ylabel("y (row of throws)")
+plt.savefig("buffon_needle.png", dpi=300)
+plt.show()
+</code></pre>
+<hr/>
+<h2 id="required-visual">📸 Required Visual</h2>
+<h3 id="buffons-needle-result-preview">🧵 Buffon’s Needle Result Preview</h3>
+<ul>
+<li>Gray lines = needle not crossing</li>
+<li>Red lines = needle crossing a boundary</li>
+</ul>
+<p><img alt="Buffon Needle" src="../buffon_needle.png"/></p>
+<hr/>
+<h2 id="result_1">📌 Result</h2>
+<p>With 100,000 throws, the estimated value of π is:</p>
+<p><strong>Estimated π ≈ <code>3.14...</code></strong></p>
+<p>Accuracy improves with larger <code>N</code>.</p>
+<hr/>
+<h2 id="observations_1">🔍 Observations</h2>
+<ul>
+<li>Elegant historical approach to estimating π</li>
+<li>Less efficient than the circle method (converges slower)</li>
+<li>Useful for showing how probability links to geometry and π</li>
+</ul>
+<hr/>
+<h2 id="final-comparison">✅ Final Comparison</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Estimate Accuracy</th>
+<th>Speed</th>
+<th>Visualization</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Circle in Square</td>
+<td>High (fast)</td>
+<td>Very Fast</td>
+<td>Clear &amp; simple</td>
+</tr>
+<tr>
+<td>Buffon’s Needle</td>
+<td>Lower (slower)</td>
+<td>Moderate</td>
+<td>Educational</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://colab.research.google.com/drive/171I62rpj2nSUn1B4vmqMneP2zu2YqWNP?usp=sharing">visit my colab</a></p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
