@@ -84,41 +84,23 @@
 <ul class="current">
 <li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 1: Exploring the Central Limit Theorem through Simulations</a>
 <ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="#motivation">🌟 Motivation</a>
+<li class="toctree-l3"><a class="reference internal" href="#motivation">🎯 Motivation</a>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#1-simulating-sampling-distributions">🧪 1. Simulating Sampling Distributions</a>
+<li class="toctree-l3"><a class="reference internal" href="#simulating-sampling-distributions">🧪 Simulating Sampling Distributions</a>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#2-sampling-and-visualization">📊 2. Sampling and Visualization</a>
+<li class="toctree-l3"><a class="reference internal" href="#sampling-and-histogram-visualization">📊 Sampling and Histogram Visualization</a>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#3-parameter-exploration">🔍 3. Parameter Exploration</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#4-practical-applications">🔠 4. Practical Applications</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#definitions-with-examples">📚 Definitions with Examples</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#interpretation-discussion">📈 Interpretation &amp; Discussion</a>
+<li class="toctree-l3"><a class="reference internal" href="#generated-histograms">📸 Generated Histograms</a>
 <ul>
-<li class="toctree-l4"><a class="reference internal" href="#observations">➔ Observations:</a>
+<li class="toctree-l4"><a class="reference internal" href="#uniform-distribution">✅ Uniform Distribution</a>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="#variance-impact">➔ Variance Impact:</a>
+<li class="toctree-l4"><a class="reference internal" href="#exponential-distribution">✅ Exponential Distribution</a>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="#convergence-insight">➔ Convergence Insight:</a>
+<li class="toctree-l4"><a class="reference internal" href="#binomial-distribution">✅ Binomial Distribution</a>
 </li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#python-implementation">🗓️ Python Implementation</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#generated-histograms">📊 Generated Histograms</a>
-<ul>
-<li class="toctree-l4"><a class="reference internal" href="#uniform-distribution">📈 Uniform Distribution</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#exponential-distribution">📈 Exponential Distribution</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#binomial-distribution">📈 Binomial Distribution</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#visual-comparison-at-sample-size-30">🌍 Visual Comparison at Sample Size = 30</a>
-</li>
-</ul>
+<li class="toctree-l3"><a class="reference internal" href="#visual-comparison-at-sample-size-30">🌍 Visual Comparison at Sample Size = 30</a>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#summary">✅ Summary</a>
 </li>
@@ -210,185 +192,48 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-1-exploring-the-central-limit-theorem-through-simulations">Problem 1: Exploring the Central Limit Theorem through Simulations</h1>
-<h2 id="motivation">🌟 Motivation</h2>
+<h2 id="motivation">🎯 Motivation</h2>
 <p>The <strong>Central Limit Theorem (CLT)</strong> is a fundamental concept in probability and statistics. It states that, regardless of the population's original distribution, the sampling distribution of the <strong>sample mean</strong> will approximate a <strong>normal distribution</strong> as the <strong>sample size increases</strong>.</p>
-<p>This simulation explores the CLT using Python to demonstrate how the shape of the original distribution and the sample size affect convergence to normality.</p>
 <hr/>
-<h2 id="1-simulating-sampling-distributions">🧪 1. Simulating Sampling Distributions</h2>
-<p>We will generate data from three different population distributions:</p>
-<ul>
-<li><code>Uniform distribution</code></li>
-<li><code>Exponential distribution</code></li>
-<li><code>Binomial distribution</code></li>
-</ul>
-<p>Each population will contain <strong>100,000 random values</strong> to ensure a large base for sampling.</p>
+<h2 id="simulating-sampling-distributions">🧪 Simulating Sampling Distributions</h2>
+<p>We'll generate large datasets for these distributions:
+- Uniform
+- Exponential
+- Binomial</p>
+<p>Each dataset contains 100,000 values.</p>
 <hr/>
-<h2 id="2-sampling-and-visualization">📊 2. Sampling and Visualization</h2>
-<p>We'll sample from each population using different sample sizes:</p>
-<ul>
-<li>Sample sizes: <code>[5, 10, 30, 50]</code></li>
-<li>For each size, we'll draw <strong>10,000 samples</strong></li>
-<li>For each sample, compute the <strong>mean</strong></li>
-<li>Then, plot the <strong>histogram of the sample means</strong></li>
-</ul>
-<p>Libraries to use:</p>
+<h2 id="sampling-and-histogram-visualization">📊 Sampling and Histogram Visualization</h2>
+<p>We'll:
+- Draw 10,000 samples for each sample size (5, 10, 30, 50)
+- Compute the sample mean
+- Plot histograms to see convergence toward normality</p>
 <pre><code class="language-python">import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-from google.colab import files  # for download in Colab
-</code></pre>
-<hr/>
-<h2 id="3-parameter-exploration">🔍 3. Parameter Exploration</h2>
-<p>We'll analyze:</p>
-<ul>
-<li>How skewness and kurtosis of the population distribution affect the speed of convergence.</li>
-<li>How variance influences the spread of the sampling distribution.</li>
-</ul>
-<hr/>
-<h2 id="4-practical-applications">🔠 4. Practical Applications</h2>
-<p>The CLT is essential in real-world contexts such as:</p>
-<ul>
-<li><strong>Polling</strong>: Estimating population opinion from small samples.</li>
-<li><strong>Manufacturing</strong>: Quality control through average defect rates.</li>
-<li><strong>Finance</strong>: Modeling aggregated risk under normality assumptions.</li>
-</ul>
-<hr/>
-<h2 id="definitions-with-examples">📚 Definitions with Examples</h2>
-<table>
-<thead>
-<tr>
-<th>Term</th>
-<th>Definition</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Population</strong></td>
-<td>Entire group of interest</td>
-<td>All university students</td>
-</tr>
-<tr>
-<td><strong>Sample</strong></td>
-<td>Subset of population for analysis</td>
-<td>100 randomly selected students</td>
-</tr>
-<tr>
-<td><strong>Sample Size</strong></td>
-<td>Number of observations in a sample</td>
-<td>30 students</td>
-</tr>
-<tr>
-<td><strong>Sampling Distribution</strong></td>
-<td>Distribution of sample statistics from many samples</td>
-<td>Distribution of 1000 sample means</td>
-</tr>
-<tr>
-<td><strong>Sample Mean</strong></td>
-<td>Average of the sample values</td>
-<td>Average GPA of selected students</td>
-</tr>
-<tr>
-<td><strong>Convergence to Normality</strong></td>
-<td>As sample size ↑, sampling mean → normal distribution</td>
-<td>Average income from many samples looks bell-shaped</td>
-</tr>
-<tr>
-<td><strong>Skewness</strong></td>
-<td>Asymmetry of a distribution</td>
-<td>Income is right-skewed</td>
-</tr>
-<tr>
-<td><strong>Kurtosis</strong></td>
-<td>"Tailedness" of a distribution</td>
-<td>Stock returns have high kurtosis</td>
-</tr>
-<tr>
-<td><strong>Variance</strong></td>
-<td>Spread of data values from the mean</td>
-<td>Test scores [40, 80, 120] → high variance</td>
-</tr>
-<tr>
-<td><strong>Standard Deviation</strong></td>
-<td>Square root of variance</td>
-<td>Height SD = 3 inches</td>
-</tr>
-<tr>
-<td><strong>Normal Distribution</strong></td>
-<td>Bell-shaped distribution defined by mean and std</td>
-<td>IQ scores, heights</td>
-</tr>
-</tbody>
-</table>
-<hr/>
-<h2 id="interpretation-discussion">📈 Interpretation &amp; Discussion</h2>
-<h3 id="observations">➔ Observations:</h3>
-<ul>
-<li><code>Uniform</code>: Even small samples (n=10) show near-normality due to symmetry.</li>
-<li><code>Exponential</code>: Requires larger n (≥ 30) for normal approximation due to skewness.</li>
-<li><code>Binomial</code>: Discrete but bounded, converges well for moderate n.</li>
-</ul>
-<h3 id="variance-impact">➔ Variance Impact:</h3>
-<ul>
-<li>Higher original variance → wider sampling distribution.</li>
-<li>As n increases, spread decreases ~ 1/√n.</li>
-</ul>
-<h3 id="convergence-insight">➔ Convergence Insight:</h3>
-<p>This simulation visually confirms the CLT: regardless of original distribution, the sampling mean distribution becomes approximately normal with sufficient sample size.</p>
-<hr/>
-<h2 id="python-implementation">🗓️ Python Implementation</h2>
-<pre><code class="language-python"># 🌟 CLT Simulation Code
 
-import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
-from google.colab import files
-
-# Styling
-sns.set(style="whitegrid")
-plt.rcParams["figure.figsize"] = (12, 6)
-
-# Function to simulate, save &amp; download
 def simulate_and_save(population, sample_sizes, dist_name=""):
     for size in sample_sizes:
-        sample_means = []
-        for _ in range(10000):
-            sample = np.random.choice(population, size=size)
-            sample_means.append(np.mean(sample))
-
-        plt.figure()
-        sns.histplot(sample_means, kde=True, bins=50, color="skyblue")
+        means = [np.mean(np.random.choice(population, size=size)) for _ in range(10000)]
+        plt.figure(figsize=(8, 4))
+        sns.histplot(means, kde=True, bins=50, color='skyblue')
         plt.title(f"{dist_name} Distribution - Sample Size {size}")
         plt.xlabel("Sample Mean")
         plt.ylabel("Frequency")
-
         filename = f"{dist_name.lower()}_n{size}.png"
-        plt.savefig(filename, dpi=300, bbox_inches='tight')
+        plt.savefig(filename, dpi=300)
         plt.show()
-        files.download(filename)
-</code></pre>
-<pre><code class="language-python"># Create populations
-N = 100_000
-uniform_pop = np.random.uniform(0, 100, size=N)
-exponential_pop = np.random.exponential(scale=50, size=N)
-binomial_pop = np.random.binomial(n=100, p=0.5, size=N)
-
-# Simulate &amp; download selected graphs
-simulate_and_save(uniform_pop, [10, 30], dist_name="Uniform")
-simulate_and_save(exponential_pop, [30], dist_name="Exponential")
-simulate_and_save(binomial_pop, [30], dist_name="Binomial")
 </code></pre>
 <hr/>
-<h2 id="generated-histograms">📊 Generated Histograms</h2>
-<h3 id="uniform-distribution">📈 Uniform Distribution</h3>
-<p><img alt="Uniform Histogram n=10" src="uniform_n10.png"/><br/>
-<img alt="Uniform Histogram n=30" src="uniform_n30.png"/></p>
-<h3 id="exponential-distribution">📈 Exponential Distribution</h3>
-<p><img alt="Exponential Histogram n=30" src="../exponential_n30.png"/></p>
-<h3 id="binomial-distribution">📈 Binomial Distribution</h3>
-<p><img alt="Binomial Histogram n=30" src="../binomial_n30.png"/></p>
+<h2 id="generated-histograms">📸 Generated Histograms</h2>
+<h3 id="uniform-distribution">✅ Uniform Distribution</h3>
+<p><img src="uniform_n10.png" width="400"/><br/>
+<img src="uniform_n30.png" width="400"/></p>
+<h3 id="exponential-distribution">✅ Exponential Distribution</h3>
+<p><img src="exponential_n30.png" width="400"/></p>
+<h3 id="binomial-distribution">✅ Binomial Distribution</h3>
+<p><img src="binomial_n30.png" width="400"/></p>
 <hr/>
-<h3 id="visual-comparison-at-sample-size-30">🌍 Visual Comparison at Sample Size = 30</h3>
+<h2 id="visual-comparison-at-sample-size-30">🌍 Visual Comparison at Sample Size = 30</h2>
 <table>
 <thead>
 <tr>
@@ -399,15 +244,15 @@ simulate_and_save(binomial_pop, [30], dist_name="Binomial")
 </thead>
 <tbody>
 <tr>
-<td><img alt="" src="uniform_n30.png"/></td>
-<td><img alt="" src="../exponential_n30.png"/></td>
-<td><img alt="" src="../binomial_n30.png"/></td>
+<td><img src="uniform_n30.png" width="200"/></td>
+<td><img src="exponential_n30.png" width="200"/></td>
+<td><img src="binomial_n30.png" width="200"/></td>
 </tr>
 </tbody>
 </table>
 <hr/>
 <h2 id="summary">✅ Summary</h2>
-<p>This simulation project demonstrated the Central Limit Theorem using Python. Through repeated sampling from various population distributions (uniform, exponential, binomial), we observed that the distribution of the sample mean converges to a normal distribution as sample size increases.</p>
+<p>This simulation visually confirms that regardless of the original distribution, the <strong>sampling mean</strong> distribution becomes approximately <strong>normal</strong> with sufficient sample size, validating the Central Limit Theorem.</p>
 <p><a href="https://colab.research.google.com/drive/1tNL1Uht_NlbxpEmx-IhVyRU4iF8HjaGN?usp=sharing">visit my colab</a></p>
 </div>
 </div><footer>
