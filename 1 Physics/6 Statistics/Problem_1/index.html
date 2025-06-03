@@ -219,19 +219,19 @@ def simulate_and_save(population, sample_sizes, dist_name=""):
         plt.title(f"{dist_name} Distribution - Sample Size {size}")
         plt.xlabel("Sample Mean")
         plt.ylabel("Frequency")
-        filename = f"{dist_name.lower()}_n{size}.png"
+        filename = f"images/{dist_name.lower()}_n{size}.png"
         plt.savefig(filename, dpi=300)
         plt.show()
 </code></pre>
 <hr/>
 <h2 id="generated-histograms">📸 Generated Histograms</h2>
 <h3 id="uniform-distribution">✅ Uniform Distribution</h3>
-<p><img src="uniform_n10.png" width="400"/><br/>
-<img src="uniform_n30.png" width="400"/></p>
+<p><img src="images/uniform_n10.png" width="400"/><br/>
+<img src="images/uniform_n30.png" width="400"/></p>
 <h3 id="exponential-distribution">✅ Exponential Distribution</h3>
-<p><img src="exponential_n30.png" width="400"/></p>
+<p><img src="images/exponential_n30.png" width="400"/></p>
 <h3 id="binomial-distribution">✅ Binomial Distribution</h3>
-<p><img src="binomial_n30.png" width="400"/></p>
+<p><img src="images/binomial_n30.png" width="400"/></p>
 <hr/>
 <h2 id="visual-comparison-at-sample-size-30">🌍 Visual Comparison at Sample Size = 30</h2>
 <table>
@@ -244,9 +244,9 @@ def simulate_and_save(population, sample_sizes, dist_name=""):
 </thead>
 <tbody>
 <tr>
-<td><img src="uniform_n30.png" width="200"/></td>
-<td><img src="exponential_n30.png" width="200"/></td>
-<td><img src="binomial_n30.png" width="200"/></td>
+<td><img src="images/uniform_n30.png" width="200"/></td>
+<td><img src="images/exponential_n30.png" width="200"/></td>
+<td><img src="images/binomial_n30.png" width="200"/></td>
 </tr>
 </tbody>
 </table>
