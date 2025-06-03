@@ -38,7 +38,7 @@ def simulate_and_save(population, sample_sizes, dist_name=""):
         plt.title(f"{dist_name} Distribution - Sample Size {size}")
         plt.xlabel("Sample Mean")
         plt.ylabel("Frequency")
-        filename = f"{dist_name.lower()}_n{size}.png"
+        filename = f"images/{dist_name.lower()}_n{size}.png"
         plt.savefig(filename, dpi=300)
         plt.show()
 ```
@@ -48,14 +48,14 @@ def simulate_and_save(population, sample_sizes, dist_name=""):
 ## 📸 Generated Histograms
 
 ### ✅ Uniform Distribution  
-<img src="uniform_n10.png" width="400"/>  
-<img src="uniform_n30.png" width="400"/>
+<img src="images/uniform_n10.png" width="400"/>  
+<img src="images/uniform_n30.png" width="400"/>
 
 ### ✅ Exponential Distribution  
-<img src="exponential_n30.png" width="400"/>
+<img src="images/exponential_n30.png" width="400"/>
 
 ### ✅ Binomial Distribution  
-<img src="binomial_n30.png" width="400"/>
+<img src="images/binomial_n30.png" width="400"/>
 
 ---
 
@@ -63,7 +63,7 @@ def simulate_and_save(population, sample_sizes, dist_name=""):
 
 | Uniform | Exponential | Binomial |
 |--------|-------------|----------|
-| <img src="uniform_n30.png" width="200"/> | <img src="exponential_n30.png" width="200"/> | <img src="binomial_n30.png" width="200"/> |
+| <img src="images/uniform_n30.png" width="200"/> | <img src="images/exponential_n30.png" width="200"/> | <img src="images/binomial_n30.png" width="200"/> |
 
 ---
 
