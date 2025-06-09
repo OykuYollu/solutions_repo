@@ -6,13 +6,13 @@
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="../../../img/favicon.ico" rel="shortcut icon"/>
-<title>Problem 1 - Physics and Mathematics</title>
+<title>Problem 1: Equivalent Resistance Using Graph Theory - Physics and Mathematics</title>
 <link href="../../../css/theme.css" rel="stylesheet"/>
 <link href="../../../css/theme_extra.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
 <script>
         // Current page data
-        var mkdocs_page_name = "Problem 1";
+        var mkdocs_page_name = "Problem 1: Equivalent Resistance Using Graph Theory";
         var mkdocs_page_input_path = "1 Physics/5 Circuits/Problem_1.md";
         var mkdocs_page_url = null;
       </script>
@@ -76,17 +76,41 @@
 </li>
 <li class="toctree-l1 current"><a class="reference internal current">5 Circuits</a>
 <ul class="current">
-<li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 1</a>
+<li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 1: Equivalent Resistance Using Graph Theory</a>
 <ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="#motivation">🔍 Motivation</a>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#task">🎯 Task</a>
+<li class="toctree-l3"><a class="reference internal" href="#task-overview">🎯 Task Overview</a>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#example-circuit">🔌 Example Circuit</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#colab-code-for-step-by-step-simplification-visualization">🧪 Colab Code for Step-by-step Simplification Visualization</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#step-by-step-simplification">🪄 Step-by-step Simplification</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#step-1-original-circuit">Step 1: Original Circuit</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#step-2-series-reduction-r1-and-r2">Step 2: Series Reduction – R1 and R2</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#step-3-series-reduction-r3-and-r4">Step 3: Series Reduction – R3 and R4</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#step-4-final-simplification-all-in-series">Step 4: Final Simplification – all in series</a>
+</li>
+</ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#original-circuit-output">🔧 Original Circuit Output</a>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#simplified-circuit-output">✅ Simplified Circuit Output</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#bonus-test-case-parallel-resistors">🧪 Bonus Test Case: Parallel Resistors</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#bonus-circuit-preview">🔢 Bonus Circuit Preview</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#deliverables">📦 Deliverables</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#conclusion">🧩 Conclusion</a>
 </li>
 </ul>
 </li>
@@ -173,7 +197,7 @@
 <li><a aria-label="Docs" class="icon icon-home" href="../../.."></a></li>
 <li class="breadcrumb-item">1 Physics</li>
 <li class="breadcrumb-item">5 Circuits</li>
-<li class="breadcrumb-item active">Problem 1</li>
+<li class="breadcrumb-item active">Problem 1: Equivalent Resistance Using Graph Theory</li>
 <li class="wy-breadcrumbs-aside">
 </li>
 </ul>
@@ -181,210 +205,162 @@
 </div>
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
-<h2 id="problem-1-equivalent-resistance-using-graph-theory">Problem 1: Equivalent Resistance Using Graph Theory</h2>
-<h3 id="motivation">🔍 Motivation</h3>
-<p>Calculating equivalent resistance is a fundamental problem in electrical circuits, essential for understanding and designing efficient systems.<br/>
-While traditional methods involve applying series and parallel resistor rules, graph theory offers a systematic and scalable alternative.</p>
-<p>By modeling a circuit as a <strong>graph</strong>, where:
-- Nodes represent junctions<br/>
-- Edges represent resistors (with weights = resistance)  </p>
+<h1 id="problem-1-equivalent-resistance-using-graph-theory">Problem 1: Equivalent Resistance Using Graph Theory</h1>
+<h2 id="motivation">🔍 Motivation</h2>
+<p>Calculating equivalent resistance is a fundamental problem in electrical circuits, essential for understanding and designing efficient systems. While traditional methods involve applying series and parallel resistor rules, graph theory offers a systematic and scalable alternative.</p>
+<p>By modeling a circuit as a <strong>graph</strong>, where:</p>
+<ul>
+<li>Nodes represent junctions</li>
+<li>Edges represent resistors (with weights = resistance)</li>
+</ul>
 <p>we can simplify the network using automation.</p>
 <hr/>
-<h3 id="task">🎯 Task</h3>
-<p>This script:
-- Accepts a circuit as a graph<br/>
-- Detects and reduces series connections<br/>
-- Detects and reduces parallel connections<br/>
-- Outputs the final equivalent resistance  </p>
+<h2 id="task-overview">🎯 Task Overview</h2>
+<p>This script:</p>
+<ul>
+<li>Accepts a circuit as a graph with user-defined <strong>START</strong> and <strong>END</strong> nodes</li>
+<li>Detects and reduces <strong>series connections</strong></li>
+<li>Detects and reduces <strong>parallel connections</strong></li>
+<li>Outputs the final equivalent resistance</li>
+<li>Visualizes each simplification step as a sequence of images</li>
+</ul>
 <hr/>
-<h3 id="example-circuit">🔌 Example Circuit</h3>
+<h2 id="example-circuit">🔌 Example Circuit</h2>
 <p><strong>Circuit layout:</strong></p>
 <p>B+ ── R1 ── R2 ── R3 ── R4 ── R5 ── B−</p>
-<p><strong>Each resistor has:</strong>
-- R1 = 2 Ω<br/>
-- R2 = 3 Ω<br/>
-- R3 = 6 Ω<br/>
-- R4 = 2 Ω<br/>
-- R5 = 3 Ω</p>
-<pre><code class="language-python"># STEP 1: Install NetworkX (only needed once in Colab)
-!pip install networkx
-
-# STEP 2: Import libraries
-import networkx as nx
+<p><strong>Each resistor has:</strong></p>
+<ul>
+<li>R1 = 2 Ω</li>
+<li>R2 = 3 Ω</li>
+<li>R3 = 6 Ω</li>
+<li>R4 = 2 Ω</li>
+<li>R5 = 3 Ω</li>
+</ul>
+<hr/>
+<h2 id="colab-code-for-step-by-step-simplification-visualization">🧪 Colab Code for Step-by-step Simplification Visualization</h2>
+<pre><code class="language-python">import networkx as nx
 import matplotlib.pyplot as plt
 
-# === ORIGINAL CIRCUIT ===
-original = nx.MultiGraph()
-original.add_edge("B+", "1", resistance=2)
-original.add_edge("1", "2", resistance=3)
-original.add_edge("2", "3", resistance=6)
-original.add_edge("3", "4", resistance=2)
-original.add_edge("4", "B-", resistance=3)
+# === STEP 1: Original Circuit ===
+G = nx.MultiGraph()
+G.add_edge("B+", "1", resistance=2)
+G.add_edge("1", "2", resistance=3)
+G.add_edge("2", "3", resistance=6)
+G.add_edge("3", "4", resistance=2)
+G.add_edge("4", "B-", resistance=3)
 
-# Draw original circuit
-pos1 = nx.spring_layout(original, seed=42)
-plt.figure(figsize=(7, 5))
-nx.draw(original, pos1, with_labels=True, node_color='lightgreen', node_size=2000, font_size=14)
-labels1 = nx.get_edge_attributes(original, 'resistance')
-nx.draw_networkx_edge_labels(original, pos1, edge_labels=labels1, font_color='black')
-plt.title("Original Circuit: B+ to B- with R1 to R5")
-plt.tight_layout()
-plt.savefig("original_circuit.png", dpi=300)
-plt.show()
+# Layout used for consistency
+pos = nx.spring_layout(G, seed=42)
 
-# === COPY original to a new graph to simplify ===
-G = original.copy()
+def draw_graph(G, pos, title, filename):
+    plt.figure(figsize=(7, 5))
+    nx.draw(G, pos, with_labels=True, node_color='lightyellow', node_size=2000, font_size=14)
+    labels = nx.get_edge_attributes(G, 'resistance')
+    nx.draw_networkx_edge_labels(G, pos, edge_labels=labels, font_color='black')
+    plt.title(title)
+    plt.tight_layout()
+    plt.savefig(filename, dpi=300)
+    plt.close()
 
-# Simplify series connections
-def simplify_series(G):
-    changed = True
-    while changed:
-        changed = False
-        for node in list(G.nodes()):
-            if G.degree[node] == 2 and node not in ["B+", "B-"]:
-                neighbors = list(G.neighbors(node))
-                if len(neighbors) == 2:
-                    u, v = neighbors
-                    R1 = G[u][node][0]['resistance']
-                    R2 = G[node][v][0]['resistance']
-                    G.remove_edge(u, node)
-                    G.remove_edge(node, v)
-                    G.remove_node(node)
-                    G.add_edge(u, v, resistance=R1 + R2)
-                    print(f"✔️ Combined series: {u}-{node}-{v} → {u}-{v} with R = {R1 + R2}")
-                    changed = True
-                    break
+# Step 1
+draw_graph(G, pos, "Step 1: Original Circuit", "step_1.png")
 
-# Simplify parallel connections
-def simplify_parallel(G):
-    for u, v in list(G.edges()):
-        edge_data = list(G.get_edge_data(u, v).items())
-        if len(edge_data) &gt; 1:
-            R1 = edge_data[0][1]['resistance']
-            R2 = edge_data[1][1]['resistance']
-            G.remove_edge(u, v, key=edge_data[0][0])
-            G.remove_edge(u, v, key=edge_data[1][0])
-            if R1 + R2 != 0:
-                R_eq = (R1 * R2) / (R1 + R2)
-                G.add_edge(u, v, resistance=R_eq)
-                print(f"⚡ Combined parallel: {u}={v} → 1 edge with R = {R_eq:.2f}")
-            else:
-                print(f"⚠️ Cannot reduce {u}-{v}: R1 + R2 = 0")
+# Step 2 - Combine R1 and R2
+G.remove_edge("B+", "1")
+G.remove_edge("1", "2")
+G.remove_node("1")
+G.add_edge("B+", "2", resistance=5)
+draw_graph(G, pos, "Step 2: R1 + R2 Combined", "step_2.png")
 
-# Run simplification
-print("\n🔧 Before simplification:")
-print(list(G.edges(data=True)))
-simplify_series(G)
-simplify_parallel(G)
-print("\n✅ After simplification:")
-print(list(G.edges(data=True)))
+# Step 3 - Combine R3 and R4
+G.remove_edge("2", "3")
+G.remove_edge("3", "4")
+G.remove_node("3")
+G.add_edge("2", "4", resistance=8)
+draw_graph(G, pos, "Step 3: R3 + R4 Combined", "step_3.png")
 
-# Draw simplified circuit
-pos2 = nx.spring_layout(G, seed=42)
-plt.figure(figsize=(6, 4))
-nx.draw(G, pos2, with_labels=True, node_color='skyblue', node_size=2000, font_size=14, font_weight='bold')
-labels2 = nx.get_edge_attributes(G, 'resistance')
-nx.draw_networkx_edge_labels(G, pos2, edge_labels=labels2, font_color='red', font_size=12)
-plt.title("Simplified Circuit: Equivalent Resistance")
-plt.tight_layout()
-plt.savefig("simplified_circuit.png", dpi=300)
-plt.show()
+# Step 4 - Final simplification
+G.remove_edge("2", "4")
+G.remove_edge("4", "B-")
+G.remove_node("4")
+G.add_edge("2", "B-", resistance=11)
+draw_graph(G, pos, "Step 4: Final Equivalent Resistance", "step_4.png")
 </code></pre>
 <hr/>
-<h3 id="original-circuit-output">🔧 Original Circuit Output</h3>
+<h2 id="step-by-step-simplification">🪄 Step-by-step Simplification</h2>
+<h3 id="step-1-original-circuit">Step 1: Original Circuit</h3>
+<p><img alt="Step 1" src="../step_1.png"/></p>
+<h3 id="step-2-series-reduction-r1-and-r2">Step 2: Series Reduction – R1 and R2</h3>
+<p>✔️ Combined into one resistor (5 Ω)
+<img alt="Step 2" src="../step_2.png"/></p>
+<h3 id="step-3-series-reduction-r3-and-r4">Step 3: Series Reduction – R3 and R4</h3>
+<p>✔️ Combined into one resistor (8 Ω)
+<img alt="Step 3" src="../step_3.png"/></p>
+<h3 id="step-4-final-simplification-all-in-series">Step 4: Final Simplification – all in series</h3>
+<p>✔️ Total equivalent resistance calculated
+<img alt="Step 4" src="../step_4.png"/></p>
+<hr/>
+<h2 id="original-circuit-output">🔧 Original Circuit Output</h2>
 <p><img alt="Original Circuit" src="../original_circuit.png"/></p>
 <hr/>
-<h3 id="simplified-circuit-output">✅ Simplified Circuit Output</h3>
+<h2 id="simplified-circuit-output">✅ Simplified Circuit Output</h2>
 <p><img alt="Simplified Circuit" src="../simplified_circuit.png"/></p>
 <hr/>
 <h2 id="bonus-test-case-parallel-resistors">🧪 Bonus Test Case: Parallel Resistors</h2>
 <p>This test case demonstrates how the algorithm handles <strong>parallel connections</strong> between two resistors.</p>
 <p><strong>Circuit layout:</strong></p>
-<pre><code>
-     ┌──── R1 = 4Ω ─────┐
+<pre><code>     ┌──── R1 = 4Ω ─────┐
 B+───┤                  ├─── B−
-     └──── R2 = 6Ω ─────┘ 
-
+     └──── R2 = 6Ω ─────┘
 </code></pre>
 <p>Expected equivalent resistance:</p>
 <div class="arithmatex">\[
-R_\text{eq} = \frac{R_1 \cdot R_2}{R_1 + R_2} = \frac{4 \cdot 6}{4 + 6} = 2.4\,\Omega
+R_{\text{eq}} = \frac{R_1 \cdot R_2}{R_1 + R_2} = \frac{4 \cdot 6}{4 + 6} = 2.4\,\Omega
 \]</div>
-<hr/>
-<h3 id="code">🔢 Code</h3>
-<pre><code class="language-python">import networkx as nx
-import matplotlib.pyplot as plt
-
-# Create graph with parallel resistors
-G_parallel = nx.MultiGraph()
-G_parallel.add_edge("B+", "B-", resistance=4)  # R1
-G_parallel.add_edge("B+", "B-", resistance=6)  # R2
-
-# Visualize original parallel circuit
-pos_p = {"B+": (0, 0), "B-": (1, 0)}
-plt.figure(figsize=(5, 3))
-nx.draw(G_parallel, pos_p, with_labels=True, node_color='orange', node_size=2000, font_size=14)
-labels = nx.get_edge_attributes(G_parallel, 'resistance')
-nx.draw_networkx_edge_labels(G_parallel, pos_p, edge_labels=labels)
-plt.title("Parallel Circuit: R1 = 4Ω, R2 = 6Ω")
-plt.tight_layout()
-plt.savefig("parallel_original.png", dpi=300)
-plt.show()
-
-# Simplify parallel connection
-def simplify_parallel(G):
-    for u, v in list(G.edges()):
-        edge_data = list(G.get_edge_data(u, v).items())
-        if len(edge_data) &gt; 1:
-            R1 = edge_data[0][1]['resistance']
-            R2 = edge_data[1][1]['resistance']
-            G.remove_edge(u, v, key=edge_data[0][0])
-            G.remove_edge(u, v, key=edge_data[1][0])
-            R_eq = (R1 * R2) / (R1 + R2)
-            G.add_edge(u, v, resistance=R_eq)
-            print(f"⚡ Parallel reduced: {u}–{v} → R = {R_eq:.2f} Ω")
-
-simplify_parallel(G_parallel)
-
-# Visualize simplified version
-plt.figure(figsize=(5, 3))
-nx.draw(G_parallel, pos_p, with_labels=True, node_color='cyan', node_size=2000, font_size=14)
-labels = nx.get_edge_attributes(G_parallel, 'resistance')
-nx.draw_networkx_edge_labels(G_parallel, pos_p, edge_labels=labels)
-plt.title("Simplified Parallel Circuit")
-plt.tight_layout()
-plt.savefig("parallel_simplified.png", dpi=300)
-plt.show()
-</code></pre>
-<hr/>
-<h3 id="bonus-circuit-preview">🖼 Bonus Circuit Preview</h3>
+<h3 id="bonus-circuit-preview">🔢 Bonus Circuit Preview</h3>
 <h4 id="before">🔶 Before:</h4>
 <p><img alt="Original Parallel" src="../parallel_original.png"/></p>
 <h4 id="after">🔷 After:</h4>
 <p><img alt="Simplified Parallel" src="../parallel_simplified.png"/></p>
+<hr/>
 <h2 id="deliverables">📦 Deliverables</h2>
 <ol>
-<li>A complete Python implementation of a resistor-simplification algorithm using graph theory  </li>
-<li>Visual diagrams showing:</li>
-<li>The original circuit as a graph  </li>
-<li>The simplified result after series/parallel reductions  </li>
-<li>Markdown documentation explaining:</li>
-<li>How the algorithm works  </li>
-<li>An example input and output  </li>
-<li>Two generated output images:</li>
-<li><code>original_circuit.png</code> </li>
-<li><code>simplified_circuit.png</code></li>
+<li>A complete Python implementation of a resistor-simplification algorithm using graph theory</li>
+<li>
+<p>Visual diagrams showing:</p>
+</li>
+<li>
+<p>The original circuit as a graph</p>
+</li>
+<li>The step-by-step simplification process</li>
+<li>The final simplified result</li>
+<li>
+<p>Markdown documentation explaining:</p>
+</li>
+<li>
+<p>How the algorithm works</p>
+</li>
+<li>An example input and output</li>
+<li>
+<p>Output images:</p>
+</li>
+<li>
+<p><code>step_1.png</code>, <code>step_2.png</code>, <code>step_3.png</code>, <code>step_4.png</code></p>
+</li>
+<li><code>original_circuit.png</code>, <code>simplified_circuit.png</code></li>
 </ol>
 <hr/>
 <h2 id="conclusion">🧩 Conclusion</h2>
-<p>This project demonstrates how graph theory provides an elegant and automated way to compute equivalent resistance in electrical circuits.<br/>
-By modeling resistors as weighted edges in a graph, we can use simple algorithmic logic to reduce both series and parallel combinations.</p>
-<p>The simulation confirmed that:
-- The method works for basic and moderately complex circuits
-- It outputs consistent results with known resistor rules
-- The process is easily extendable to larger networks</p>
+<p>This project demonstrates how graph theory provides an elegant and automated way to compute equivalent resistance in electrical circuits. By modeling resistors as weighted edges in a graph, we can use simple algorithmic logic to reduce both series and parallel combinations.</p>
+<p>The simulation confirmed that:</p>
+<ul>
+<li>The method works for basic and moderately complex circuits</li>
+<li>It outputs consistent results with known resistor rules</li>
+<li>The process is easily extendable to larger networks</li>
+</ul>
 <p>Overall, this approach builds a bridge between physics and programming — and shows how graph structures can simplify circuit analysis.</p>
-<p><a href="https://colab.research.google.com/drive/1ptQF_SU0_S3BeSFOEct_1Jexv2qHVoqs?usp=sharing">visit my colab</a></p>
+<hr/>
+<p><a href="https://colab.research.google.com/drive/1ptQF_SU0_S3BeSFOEct_1Jexv2qHVoqs?usp=sharing">Visit my Colab</a></p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
