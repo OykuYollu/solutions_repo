@@ -1,4 +1,19 @@
-# Problem 1: Equivalent Resistance Using Graph Theory
+# Circuits Problem: Equivalent Resistance Using Graph Theory
+
+## 🧾 Instructor Notes Reference
+
+This problem is based on the example discussed in class, where a complex resistor network connects a **START** point to an **END** point.
+
+### 🧠 Key Points from Notes:
+
+* The circuit is visualized as a **graph with nodes and edges**.
+* The **goal** is to reduce a multi-branch configuration to a **single equivalent resistor**.
+* Each step in the simplification (series, parallel) is visualized, mimicking a step-by-step process as seen in the lecture animation (or provided gif).
+* The approach should be **modular** — able to handle other configurations too.
+
+We aim to replicate that structure and logic in our implementation below 👇
+
+---
 
 ## 🔍 Motivation
 
