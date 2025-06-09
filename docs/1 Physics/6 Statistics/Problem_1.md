@@ -30,14 +30,14 @@ We'll:
 ## 📸 Generated Histograms
 
 ### ✅ Uniform Distribution  
-<img src="uniform_n10-4.png" width="400"/>  
-<img src="uniform_n30-4.png" width="400"/>
+<img src="CLT_uniform_n10-4.png" width="400"/>  
+<img src="CLT_uniform_n30-4.png" width="400"/>
 
 ### ✅ Exponential Distribution  
-<img src="exponential_n30-3.png" width="400"/>
+<img src="CLT_exponential_n30-3.png" width="400"/>
 
 ### ✅ Binomial Distribution  
-<img src="binomial_n30-3.png" width="400"/>
+<img src="CLT_binomial_n30-3.png" width="400"/>
 
 ---
 
@@ -45,7 +45,7 @@ We'll:
 
 | Uniform | Exponential | Binomial |
 |--------|-------------|----------|
-| <img src="uniform_n30-4.png" width="200"/> | <img src="exponential_n30-3.png" width="200"/> | <img src="binomial_n30-3.png" width="200"/> |
+| <img src="CLT_uniform_n30-4.png" width="200"/> | <img src="CLT_exponential_n30-3.png" width="200"/> | <img src="CLT_binomial_n30-3.png" width="200"/> |
 
 ---
 
