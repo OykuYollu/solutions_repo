@@ -2,114 +2,120 @@
 
 ## 🎯 Motivation
 
-The **Central Limit Theorem (CLT)** is a fundamental concept in probability and statistics. It states that, regardless of the population's original distribution, the sampling distribution of the **sample mean** will approximate a **normal distribution** as the **sample size increases**.
+The **Central Limit Theorem (CLT)** states that as sample size increases, the distribution of sample means approaches a normal distribution regardless of the original population's shape. In this project, we simulate and visualize this convergence using three distributions.
 
 ---
 
-## 🧪 Simulating Sampling Distributions
+## 📚 Definitions
 
-We'll generate large datasets for these distributions:
-
-* Uniform
-* Exponential
-* Binomial
-
-Each dataset contains 100,000 values.
-
----
-
-## 📊 Sampling and Histogram Visualization
-
-We'll:
-
-* Draw 10,000 samples for each sample size (5, 10, 30, 50)
-* Compute the sample mean
-* Plot histograms to see convergence toward normality
+- **Population**: The entire group we are interested in.
+- **Sample**: A subset of the population.
+- **Sample Size (n)**: The number of elements in a sample.
+- **Sample Mean**: The average of sample elements.
+- **Sampling Distribution**: The distribution of the sample mean over many samples.
+- **Convergence to Normality**: The tendency of the sampling distribution to become normal as sample size increases.
 
 ---
 
-## 📸 Generated Histograms
-
-### ✅ Uniform Distribution
+## 🧪 Simulation Code (Used in Google Colab)
 
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
+import seaborn as sns
+import os
 
-# Uniform n=10
-data = np.random.uniform(0, 1, 100000)
-sample_means = [np.mean(np.random.choice(data, 10)) for _ in range(10000)]
-plt.hist(sample_means, bins=50, density=True, color='skyblue', edgecolor='black')
-plt.title('Sampling Distribution (Uniform, n=10)')
-plt.xlabel('Sample Mean')
-plt.ylabel('Density')
-plt.tight_layout()
-plt.savefig('CLT_uniform_n10-4.png', dpi=300)
-plt.show()
+sns.set(style="whitegrid")
+
+# Ortak parametreler
+sample_sizes = [5, 30]
+num_samples = 10000
+image_dir = "images"
+os.makedirs(image_dir, exist_ok=True)
+
+# --- UNIFORM DISTRIBUTION ---
+print("Generating plots for Uniform Distribution...")
+pop_uniform = np.random.uniform(0, 1, size=100000)
+for size in sample_sizes:
+    means = [np.mean(np.random.choice(pop_uniform, size=size)) for _ in range(num_samples)]
+    plt.figure(figsize=(6, 4))
+    sns.histplot(means, kde=True, bins=30)
+    plt.title(f"Uniform Sample Means (n={size})")
+    plt.xlabel("Sample Mean")
+    plt.ylabel("Frequency")
+    plt.tight_layout()
+    plt.savefig(f"{image_dir}/uniform_{size}.png")
+    plt.close()
+
+# --- EXPONENTIAL DISTRIBUTION ---
+print("Generating plots for Exponential Distribution...")
+pop_exp = np.random.exponential(scale=1.0, size=100000)
+for size in sample_sizes:
+    means = [np.mean(np.random.choice(pop_exp, size=size)) for _ in range(num_samples)]
+    plt.figure(figsize=(6, 4))
+    sns.histplot(means, kde=True, bins=30)
+    plt.title(f"Exponential Sample Means (n={size})")
+    plt.xlabel("Sample Mean")
+    plt.ylabel("Frequency")
+    plt.tight_layout()
+    plt.savefig(f"{image_dir}/exponential_{size}.png")
+    plt.close()
+
+# --- BINOMIAL DISTRIBUTION ---
+print("Generating plots for Binomial Distribution...")
+pop_binom = np.random.binomial(n=10, p=0.5, size=100000)
+for size in sample_sizes:
+    means = [np.mean(np.random.choice(pop_binom, size=size)) for _ in range(num_samples)]
+    plt.figure(figsize=(6, 4))
+    sns.histplot(means, kde=True, bins=30)
+    plt.title(f"Binomial Sample Means (n={size})")
+    plt.xlabel("Sample Mean")
+    plt.ylabel("Frequency")
+    plt.tight_layout()
+    plt.savefig(f"{image_dir}/binomial_{size}.png")
+    plt.close()
+
+print("✅ Done! Only 6 images were created (2 per distribution).")
 ```
-
-<img src="CLT_uniform_n10-4.png" width="400"/>  
-
-```python
-# Uniform n=30
-sample_means = [np.mean(np.random.choice(data, 30)) for _ in range(10000)]
-plt.hist(sample_means, bins=50, density=True, color='limegreen', edgecolor='black')
-plt.title('Sampling Distribution (Uniform, n=30)')
-plt.xlabel('Sample Mean')
-plt.ylabel('Density')
-plt.tight_layout()
-plt.savefig('CLT_uniform_n30-4.png', dpi=300)
-plt.show()
-```
-
-<img src="CLT_uniform_n30-4.png" width="400"/>
-
-### ✅ Exponential Distribution
-
-```python
-# Exponential n=30
-data = np.random.exponential(scale=1.0, size=100000)
-sample_means = [np.mean(np.random.choice(data, 30)) for _ in range(10000)]
-plt.hist(sample_means, bins=50, density=True, color='darkorange', edgecolor='black')
-plt.title('Sampling Distribution (Exponential, n=30)')
-plt.xlabel('Sample Mean')
-plt.ylabel('Density')
-plt.tight_layout()
-plt.savefig('CLT_exponential_n30-3.png', dpi=300)
-plt.show()
-```
-
-<img src="CLT_exponential_n30-3.png" width="400"/>
-
-### ✅ Binomial Distribution
-
-```python
-# Binomial n=30
-data = np.random.binomial(n=10, p=0.5, size=100000)
-sample_means = [np.mean(np.random.choice(data, 30)) for _ in range(10000)]
-plt.hist(sample_means, bins=50, density=True, color='indianred', edgecolor='black')
-plt.title('Sampling Distribution (Binomial, n=30)')
-plt.xlabel('Sample Mean')
-plt.ylabel('Density')
-plt.tight_layout()
-plt.savefig('CLT_binomial_n30-3.png', dpi=300)
-plt.show()
-```
-
-<img src="CLT_binomial_n30-3.png" width="400"/>
 
 ---
 
-## 🌍 Visual Comparison at Sample Size = 30
+## 📊 Visualization Results
 
-| Uniform                                        | Exponential                                        | Binomial                                        |
-| ---------------------------------------------- | -------------------------------------------------- | ----------------------------------------------- |
-| <img src="CLT_uniform_n30-4.png" width="200"/> | <img src="CLT_exponential_n30-3.png" width="200"/> | <img src="CLT_binomial_n30-3.png" width="200"/> |
+### Uniform Distribution
+- **n = 5**  
+  ![Uniform n=5](uniform_5.png)
+
+- **n = 30**  
+  ![Uniform n=30](uniform_30.png)
+
+### Exponential Distribution
+- **n = 5**  
+  ![Exponential n=5](exponential_5.png)
+
+- **n = 30**  
+  ![Exponential n=30](exponential_30.png)
+
+### Binomial Distribution
+- **n = 5**  
+  ![Binomial n=5](binomial_5.png)
+
+- **n = 30**  
+  ![Binomial n=30](binomial_30.png)
 
 ---
 
-## ✅ Summary
+## 🔍 Observations
 
-This simulation visually confirms that regardless of the original distribution, the **sampling mean** distribution becomes approximately **normal** with sufficient sample size, validating the Central Limit Theorem.
+- When **n = 5**, distributions (especially exponential) are skewed and not yet normal.
+- When **n = 30**, distributions become approximately bell-shaped.
+- CLT works even with non-normal populations like exponential, given a large enough sample size.
 
-[visit my colab](https://colab.research.google.com/drive/1tNL1Uht_NlbxpEmx-IhVyRU4iF8HjaGN?usp=sharing)
+---
+
+## ✅ Conclusion
+
+This experiment confirms the Central Limit Theorem. The sampling distribution of the mean tends toward normality as the sample size increases, regardless of the original distribution.
+
+---
+[visit my colab](https://colab.research.google.com/drive/1o7-Rx8dwySeraN4pMpJFN8oBfSBVCTQz?usp=sharing)
