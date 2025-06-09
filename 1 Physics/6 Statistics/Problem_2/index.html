@@ -383,7 +383,7 @@ for i in range(500):
     x1 = x_center + (L/2) * np.cos(theta)
     y = i / 50
     color = "red" if int(x0 // d) != int(x1 // d) else "gray"
-    plt.plot([x0, x1], [y, y], color=color, linewidth=0.5)
+    plt.plot([x0, x1], [y, y], color=color, linewidth=0.7)
 
 for x in np.arange(0, 20, d):
     plt.axvline(x, color='black', linestyle='--', linewidth=0.5)
@@ -402,7 +402,7 @@ plt.show()
 <li>Gray lines = needle not crossing</li>
 <li>Red lines = needle crossing a boundary</li>
 </ul>
-<p><img alt="Buffon Needle" src="../buffon_needle.png"/></p>
+<p><img alt="Buffon Needle" src="../buffon_needle-2.png"/></p>
 <hr/>
 <h2 id="result_1">📌 Result</h2>
 <p>With 100,000 throws, the estimated value of π is:</p>
