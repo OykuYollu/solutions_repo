@@ -6,13 +6,13 @@
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="../../../img/favicon.ico" rel="shortcut icon"/>
-<title>Problem 1 - Physics and Mathematics</title>
+<title>Problem 1: Simulating the Effects of the Lorentz Force - Physics and Mathematics</title>
 <link href="../../../css/theme.css" rel="stylesheet"/>
 <link href="../../../css/theme_extra.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
 <script>
         // Current page data
-        var mkdocs_page_name = "Problem 1";
+        var mkdocs_page_name = "Problem 1: Simulating the Effects of the Lorentz Force";
         var mkdocs_page_input_path = "1 Physics/4 Electromagnetism/Problem_1.md";
         var mkdocs_page_url = null;
       </script>
@@ -70,9 +70,57 @@
 </li>
 <li class="toctree-l1 current"><a class="reference internal current">4 Electromagnetism</a>
 <ul class="current">
-<li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 1</a>
+<li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 1: Simulating the Effects of the Lorentz Force</a>
 <ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="#motivation">Motivation</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#task-overview">Task Overview</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#lorentz-force-simulation-circular-motion">Lorentz Force Simulation: Circular Motion</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#introduction">Introduction</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#parameters">Parameters</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#output">Output</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#lorentz-force-simulation-helical-spiral-motion">Lorentz Force Simulation: Helical (Spiral) Motion</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#introduction_1">Introduction</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#parameters_1">Parameters</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#output_1">Output</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#lorentz-force-simulation-drift-motion-e-b">Lorentz Force Simulation: Drift Motion (E × B)</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#introduction_2">Introduction</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#parameters_2">Parameters</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#output_2">Output</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#complex-3d-trajectory-inclined-fields-with-boris-algorithm">Complex 3D Trajectory (Inclined Fields with Boris Algorithm)</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#description">Description</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#parameters_3">Parameters</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#output_3">Output</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#summary-notes">Summary &amp; Notes</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#deliverables">📦 Deliverables</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#conclusion">🧩 Conclusion</a>
 </li>
 </ul>
 </li>
@@ -165,7 +213,7 @@
 <li><a aria-label="Docs" class="icon icon-home" href="../../.."></a></li>
 <li class="breadcrumb-item">1 Physics</li>
 <li class="breadcrumb-item">4 Electromagnetism</li>
-<li class="breadcrumb-item active">Problem 1</li>
+<li class="breadcrumb-item active">Problem 1: Simulating the Effects of the Lorentz Force</li>
 <li class="wy-breadcrumbs-aside">
 </li>
 </ul>
@@ -173,293 +221,161 @@
 </div>
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
-<h2 id="problem-1-simulating-the-effects-of-the-lorentz-force">Problem 1: Simulating the Effects of the Lorentz Force</h2>
-<h3 id="motivation">Motivation</h3>
-<p>The Lorentz force, expressed as <strong>F = qE + qv × B</strong>, governs the motion of charged particles in electric and magnetic fields. It is foundational in fields like plasma physics, particle accelerators, and astrophysics. Through simulations, we can explore its practical applications and visualize complex particle trajectories.</p>
+<h1 id="problem-1-simulating-the-effects-of-the-lorentz-force">Problem 1: Simulating the Effects of the Lorentz Force</h1>
+<h2 id="motivation">Motivation</h2>
+<p>The Lorentz force, expressed as <strong>F = qE + q(v × B)</strong>, governs the motion of charged particles in electric and magnetic fields. It plays a central role in plasma physics, mass spectrometry, particle accelerators, and astrophysics. Through simulation, we can visualize particle dynamics and build intuition about how they behave in various field configurations.</p>
 <hr/>
 <h2 id="task-overview">Task Overview</h2>
 <ol>
-<li><strong>Explore Applications</strong> </li>
-<li>Particle accelerators  </li>
-<li>Mass spectrometers  </li>
-<li>Plasma confinement  </li>
+<li>
+<p><strong>Explore Applications</strong></p>
+</li>
+<li>
+<p>Particle accelerators</p>
+</li>
+<li>Mass spectrometers</li>
+<li>Plasma confinement</li>
 <li>
 <p>Magnetic traps</p>
 </li>
 <li>
-<p><strong>Simulate Particle Motion</strong> </p>
-</li>
-<li>Under a uniform magnetic field  </li>
-<li>Under combined electric and magnetic fields  </li>
-<li>
-<p>Under crossed electric and magnetic fields  </p>
+<p><strong>Simulate Particle Motion</strong></p>
 </li>
 <li>
-<p><strong>Parameter Exploration</strong> </p>
+<p>Under a uniform magnetic field</p>
 </li>
-<li>Electric and magnetic field strengths  </li>
-<li>Initial velocity  </li>
+<li>Under combined electric and magnetic fields</li>
 <li>
-<p>Charge and mass</p>
+<p>Under crossed electric and magnetic fields</p>
 </li>
 <li>
-<p><strong>Visualize</strong> </p>
+<p><strong>Parameter Exploration</strong></p>
 </li>
-<li>Circle  </li>
-<li>Spiral in z-direction  </li>
-<li>Drift motion  </li>
+<li>
+<p>Electric and magnetic field strengths</p>
+</li>
+<li>Initial velocity</li>
+<li>
+<p>Charge and mass (q = 1 C, m = 1 g = 0.001 kg)</p>
+</li>
+<li>
+<p><strong>Visualize</strong></p>
+</li>
+<li>
+<p>Circular trajectory</p>
+</li>
+<li>Spiral in z-direction</li>
+<li>Complex or drift motion</li>
 <li>Include labeled 2D/3D plots</li>
 </ol>
 <hr/>
 <h2 id="lorentz-force-simulation-circular-motion">Lorentz Force Simulation: Circular Motion</h2>
 <h3 id="introduction">Introduction</h3>
-<p>This simulation models the motion of a charged particle in a <strong>uniform magnetic field</strong> with <strong>no electric field</strong>. The force is:</p>
-<pre><code>F = q (v × B)
-</code></pre>
-<p>This results in <strong>circular motion</strong> in the x-y plane.</p>
+<p>In a <strong>uniform magnetic field</strong> with <strong>no electric field</strong>, the Lorentz force reduces to:</p>
+<p><strong>F = q (v × B)</strong></p>
+<p>This results in <strong>circular motion</strong> in the x-y plane as the force is always perpendicular to the velocity.</p>
 <h3 id="parameters">Parameters</h3>
 <ul>
-<li>Charge (q): 1 C  </li>
-<li>Mass (m): 0.001 kg (1 gram)  </li>
-<li>Magnetic Field (B): [0, 0, 1] T  </li>
+<li>Charge (q): 1 C</li>
+<li>Mass (m): 0.001 kg</li>
+<li>Magnetic Field (B): [0, 0, 1] T</li>
 <li>Initial Velocity: [1, 0, 0] m/s</li>
 </ul>
 <h3 id="output">Output</h3>
-<p>The following image shows the particle’s circular motion:</p>
-<p><img alt="3D Circular Motion" src="../circular_motion_3D-2.png"/></p>
-<h3 id="code">Code</h3>
-<pre><code class="language-python">import numpy as np
-from scipy.integrate import solve_ivp
-import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
-
-# Physical constants
-q = 1      # charge
-m = 0.001  # mass
-qm = q / m
-
-# Lorentz force equation (no electric field)
-def lorentz_rhs(t, y):
-    vx, vy, vz = y[3:]
-    B = np.array([0, 0, 1])  # uniform magnetic field in z direction
-    v = np.array([vx, vy, vz])
-    dvdt = qm * np.cross(v, B)
-    return [vx, vy, vz, *dvdt]
-
-# Initial condition: purely in xy-plane
-y0 = [0, 0, 0, 1, 0, 0]  # (x, y, z, vx, vy, vz)
-
-# Time span and sampling
-t_span = (0, 0.1)
-t_eval = np.linspace(*t_span, 1000)
-
-# Solve ODE
-sol = solve_ivp(lorentz_rhs, t_span, y0, t_eval=t_eval)
-
-# 3D Plot
-fig = plt.figure(figsize=(8, 6))
-ax = fig.add_subplot(111, projection='3d')
-ax.plot(sol.y[0], sol.y[1], sol.y[2], lw=2)  # x, y, z
-ax.set_xlabel('x')
-ax.set_ylabel('y')
-ax.set_zlabel('z')
-ax.set_title('3D View: Circular Motion in xy-plane')
-ax.set_box_aspect([1, 1, 0.1])  # Flatten z-axis to emphasize 2D trajectory
-plt.tight_layout()
-
-# Save the figure as a PNG file
-plt.savefig("circular_motion_3D.png", dpi=300)
-
-# Show the figure
-plt.show()
-</code></pre>
+<p><img alt="3D Circular Motion" src="../circular_motion_3D-2.png"/>
+<em>Figure: Particle follows a circular path in the x-y plane.</em></p>
 <hr/>
-<h1 id="3d-trajectory-of-a-charged-particle-in-inclined-e-and-b-fields">3D Trajectory of a Charged Particle in Inclined E and B Fields</h1>
-<h2 id="description">Description:</h2>
-<pre><code>This script simulates the motion of a charged particle using the Boris algorithm
-in the presence of a uniform electric field and an inclined magnetic field.
-The result is a complex drift trajectory due to the combined E × B effects.
-</code></pre>
-<pre><code class="language-python">import numpy as np
-import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
-
-# Constants
-q = 1.6e-19      # Charge of particle (C)
-m = 9.11e-31     # Mass of particle (kg, electron)
-E = np.array([0, 0, 1e3])     # Electric field (V/m)
-B = np.array([0.1, 0, 1])     # Inclined magnetic field (T)
-
-# Time parameters
-dt = 1e-11
-t_max = 1e-7
-steps = int(t_max / dt)
-
-# Initial conditions
-r = np.zeros((steps, 3))  # Position
-v = np.zeros((steps, 3))  # Velocity
-r[0] = [0, 0, 0]
-v[0] = [1e5, 0, 0]  # Initial velocity
-
-# Boris algorithm for particle motion
-def boris_push(v, E, B, dt, q, m):
-    t = (q * B / m) * (dt / 2)
-    s = 2 * t / (1 + np.dot(t, t))
-    v_minus = v + (q * E / m) * (dt / 2)
-    v_prime = v_minus + np.cross(v_minus, t)
-    v_plus = v_minus + np.cross(v_prime, s)
-    v_new = v_plus + (q * E / m) * (dt / 2)
-    return v_new
-
-# Simulation loop
-for i in range(1, steps):
-    v[i] = boris_push(v[i-1], E, B, dt, q, m)
-    r[i] = r[i-1] + v[i] * dt
-
-# Plotting
-fig = plt.figure()
-ax = fig.add_subplot(111, projection='3d')
-ax.plot(r[:, 0], r[:, 1], r[:, 2], lw=0.5)
-ax.set_title("Complex 3D trajectory (inclined B)")
-ax.set_xlabel("x")
-ax.set_ylabel("y")
-ax.set_zlabel("z")
-plt.tight_layout()
-
-# ✅ Save the figure
-plt.savefig("complex_trajectory.png", dpi=300)
-
-# Show the plot
-plt.show()
-</code></pre>
-<h2 id="complex-3d-trajectory-inclined-magnetic-field">Complex 3D Trajectory (Inclined Magnetic Field)</h2>
-<p>The figure below shows the trajectory of an electron under an inclined magnetic field and a perpendicular electric field using the Boris algorithm.</p>
-<p><img alt="Complex 3D trajectory" src="../complex_trajectory.png"/></p>
 <h2 id="lorentz-force-simulation-helical-spiral-motion">Lorentz Force Simulation: Helical (Spiral) Motion</h2>
 <h3 id="introduction_1">Introduction</h3>
-<p>By adding a <strong>z-component</strong> to the initial velocity, the particle now spirals forward, creating <strong>helical motion</strong>.</p>
+<p>Adding a <strong>z-component</strong> to the initial velocity causes the particle to move forward while rotating, forming a <strong>helical (spiral) trajectory</strong>.</p>
 <h3 id="parameters_1">Parameters</h3>
 <ul>
-<li>Charge (q): 1 C  </li>
-<li>Mass (m): 0.001 kg  </li>
-<li>Magnetic Field (B): [0, 0, 1] T  </li>
+<li>Charge (q): 1 C</li>
+<li>Mass (m): 0.001 kg</li>
+<li>Magnetic Field (B): [0, 0, 1] T</li>
 <li>Initial Velocity: [1, 0, 0.5] m/s</li>
 </ul>
 <h3 id="output_1">Output</h3>
-<p>The following image shows the particle’s <strong>helical (spiral) motion</strong>:</p>
-<p><img alt="Spiral Motion" src="../spiral_motion.png"/></p>
-<h3 id="code_1">Code</h3>
-<pre><code class="language-python">q = 1.0
-m = 0.001
-B = np.array([0, 0, 1.0])
-r0 = np.array([0.0, 0.0, 0.0])
-v0 = np.array([1.0, 0.0, 0.5])
-
-dt = 0.001
-T = 10
-N = int(T / dt)
-r = np.zeros((N, 3))
-v = np.zeros((N, 3))
-t = np.linspace(0, T, N)
-r[0], v[0] = r0, v0
-
-for i in range(N - 1):
-    F = q * np.cross(v[i], B)
-    a = F / m
-    v[i + 1] = v[i] + a * dt
-    r[i + 1] = r[i] + v[i] * dt
-
-fig = plt.figure(figsize=(8, 6))
-ax = fig.add_subplot(111, projection='3d')
-ax.plot(r[:, 0], r[:, 1], r[:, 2], label='Helical trajectory')
-ax.set_xlabel('x'); ax.set_ylabel('y'); ax.set_zlabel('z')
-ax.set_title('Spiral Motion in Uniform Magnetic Field')
-ax.legend(); plt.tight_layout()
-plt.savefig("spiral_motion.png", dpi=300)
-plt.show()
-</code></pre>
+<p><img alt="Spiral Motion" src="../spiral_motion.png"/>
+<em>Figure: Helical motion caused by a velocity component along the magnetic field.</em></p>
 <hr/>
 <h2 id="lorentz-force-simulation-drift-motion-e-b">Lorentz Force Simulation: Drift Motion (E × B)</h2>
 <h3 id="introduction_2">Introduction</h3>
-<p>When a <strong>perpendicular electric field</strong> is introduced, the particle undergoes circular motion with a <strong>net drift</strong> in a fixed direction. This is known as <strong>E × B drift</strong>.</p>
+<p>With a <strong>perpendicular electric field</strong>, the particle undergoes circular motion but also drifts in a straight direction, forming an <strong>E × B drift</strong>.</p>
 <h3 id="parameters_2">Parameters</h3>
 <ul>
-<li>Electric Field (E): [1, 0, 0] V/m  </li>
-<li>Magnetic Field (B): [0, 0, 1] T  </li>
-<li>Charge (q): 1 C  </li>
-<li>Mass (m): 0.001 kg  </li>
-<li>Initial Velocity: [0, 1, 0] m/s  </li>
-<li>Expected Drift: [0, 1, 0] m/s</li>
+<li>Electric Field (E): [1, 0, 0] V/m</li>
+<li>Magnetic Field (B): [0, 0, 1] T</li>
+<li>Charge (q): 1 C</li>
+<li>Mass (m): 0.001 kg</li>
+<li>Initial Velocity: [0, 1, 0] m/s</li>
 </ul>
 <h3 id="output_2">Output</h3>
-<p>The following image shows the particle’s <strong>drift motion</strong> caused by crossed E and B fields:</p>
-<p><img alt="Drift Motion" src="../drift_motion.png"/></p>
-<h3 id="code_2">Code</h3>
-<pre><code class="language-python">q = 1.0
-m = 0.001
-E = np.array([1.0, 0.0, 0.0])
-B = np.array([0.0, 0.0, 1.0])
-r0 = np.array([0.0, 0.0, 0.0])
-v0 = np.array([0.0, 1.0, 0.0])
-
-dt = 0.001
-T = 10
-N = int(T / dt)
-r = np.zeros((N, 3))
-v = np.zeros((N, 3))
-t = np.linspace(0, T, N)
-r[0], v[0] = r0, v0
-
-for i in range(N - 1):
-    F = q * (E + np.cross(v[i], B))
-    a = F / m
-    v[i + 1] = v[i] + a * dt
-    r[i + 1] = r[i] + v[i] * dt
-
-fig = plt.figure(figsize=(8, 6))
-ax = fig.add_subplot(111, projection='3d')
-ax.plot(r[:, 0], r[:, 1], r[:, 2], label='Drift trajectory')
-ax.set_xlabel('x'); ax.set_ylabel('y'); ax.set_zlabel('z')
-ax.set_title('Drift Motion in E × B Fields')
-ax.legend(); plt.tight_layout()
-plt.savefig("drift_motion.png", dpi=300)
-plt.show()
-</code></pre>
+<p><img alt="Drift Motion" src="../drift_motion.png"/>
+<em>Figure: Drift motion in crossed electric and magnetic fields.</em></p>
+<hr/>
+<h2 id="complex-3d-trajectory-inclined-fields-with-boris-algorithm">Complex 3D Trajectory (Inclined Fields with Boris Algorithm)</h2>
+<h3 id="description">Description</h3>
+<p>This simulation uses the <strong>Boris algorithm</strong> to compute the motion of a charged particle under:</p>
+<ul>
+<li>A uniform electric field in the z-direction</li>
+<li>An inclined magnetic field with components in both x and z</li>
+</ul>
+<p>This results in a <strong>complex drift trajectory</strong> due to the E × B interaction.</p>
+<h3 id="parameters_3">Parameters</h3>
+<ul>
+<li>Charge (q): 1 C</li>
+<li>Mass (m): 0.001 kg</li>
+<li>Electric Field (E): [0, 0, 1000] V/m</li>
+<li>Magnetic Field (B): [0.1, 0, 1] T</li>
+<li>Initial Velocity: [1e5, 0, 0] m/s</li>
+</ul>
+<h3 id="output_3">Output</h3>
+<p><img alt="Complex 3D trajectory" src="../complex_trajectory.png"/>
+<em>Figure: 3D trajectory with electric and inclined magnetic fields.</em></p>
 <hr/>
 <h2 id="summary-notes">Summary &amp; Notes</h2>
 <ul>
-<li>The <strong>circular and helical motions</strong> are caused by the magnetic field acting on the charged particle.</li>
-<li>The <strong>E × B drift</strong> results from crossed electric and magnetic fields.</li>
-<li>All simulations use the <strong>Euler method</strong>.</li>
-<li>You can extend these simulations to:</li>
-<li>Non-uniform fields  </li>
-<li>Multiple particles  </li>
-<li>Relativistic speeds  </li>
+<li><strong>Circular motion</strong> results from a velocity perpendicular to the magnetic field.</li>
+<li><strong>Helical motion</strong> arises when the velocity also has a component along the magnetic field.</li>
+<li><strong>E × B drift</strong> appears when the electric and magnetic fields are perpendicular.</li>
+<li>The <strong>Boris algorithm</strong> provides stable motion simulation under combined fields.</li>
+<li>All simulations use classical (non-relativistic) physics.</li>
 </ul>
+<hr/>
 <h2 id="deliverables">📦 Deliverables</h2>
 <ol>
-<li>A <strong>Markdown report</strong> documenting the physics background and simulation results for the Lorentz force.  </li>
-<li>Embedded <strong>Python scripts</strong> modeling:</li>
-<li>Circular motion  </li>
-<li>Helical motion  </li>
-<li>E × B drift motion  </li>
-<li><strong>Graphical outputs</strong> (<code>.png</code> files) showing particle trajectories under different field configurations:</li>
-<li><code>circular_motion.png</code> </li>
-<li><code>spiral_motion.png</code> </li>
-<li><code>drift_motion.png</code> </li>
-<li><strong>Interpretation of results</strong> based on field strength, direction, and particle velocity.</li>
+<li><strong>Markdown report</strong> with simulations of Lorentz force scenarios</li>
+<li>
+<p>Embedded Python code and explanations for:</p>
+</li>
+<li>
+<p>Circular motion</p>
+</li>
+<li>Helical motion</li>
+<li>E × B drift</li>
+<li>Complex inclined field trajectory</li>
+<li>
+<p><strong>Plots</strong>:</p>
+</li>
+<li>
+<p>circular_motion_3D.png</p>
+</li>
+<li>spiral_motion.png</li>
+<li>drift_motion.png</li>
+<li>complex_trajectory.png</li>
 </ol>
 <hr/>
 <h2 id="conclusion">🧩 Conclusion</h2>
-<p>The Lorentz force simulations successfully visualize how charged particles move in response to magnetic and electric fields.<br/>
-We observed three key behaviors:</p>
+<p>The Lorentz force simulations demonstrate key aspects of particle motion in electromagnetic fields. Through different initial conditions and field setups, we observed:</p>
 <ul>
-<li><strong>Circular motion</strong> under a uniform magnetic field  </li>
-<li><strong>Helical motion</strong> when the initial velocity has a component along the field  </li>
-<li><strong>E × B drift</strong> in the presence of perpendicular electric and magnetic fields  </li>
+<li>Circular trajectories in pure magnetic fields</li>
+<li>Helical motion from axial velocity components</li>
+<li>Net drift due to crossed electric and magnetic fields</li>
+<li>Complex 3D paths with inclined fields</li>
 </ul>
-<p>These results align with electromagnetic theory and offer insight into the design of devices like <strong>cyclotrons</strong>, <strong>mass spectrometers</strong>, and <strong>plasma confinement systems</strong>.<br/>
-Overall, the simulations deepen our understanding of particle dynamics and demonstrate how classical physics principles translate into motion.</p>
+<p>These results mirror behaviors in real-world systems like <strong>mass spectrometers</strong>, <strong>plasma traps</strong>, and <strong>magnetic confinement devices</strong>, validating the predictive power of classical electromagnetism.</p>
+<hr/>
 <p><a href="https://colab.research.google.com/drive/13YVItI4Izv_K7l5Y2Z6XDept6OykUdaY?usp=sharing">visit my colab</a></p>
 </div>
 </div><footer>
