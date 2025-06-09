@@ -205,7 +205,7 @@ for i in range(500):
     x1 = x_center + (L/2) * np.cos(theta)
     y = i / 50
     color = "red" if int(x0 // d) != int(x1 // d) else "gray"
-    plt.plot([x0, x1], [y, y], color=color, linewidth=0.5)
+    plt.plot([x0, x1], [y, y], color=color, linewidth=0.7)
 
 for x in np.arange(0, 20, d):
     plt.axvline(x, color='black', linestyle='--', linewidth=0.5)
@@ -227,7 +227,7 @@ plt.show()
 - Gray lines = needle not crossing
 - Red lines = needle crossing a boundary
 
-![Buffon Needle](buffon_needle.png)
+![Buffon Needle](buffon_needle-2.png)
 
 ---
 
